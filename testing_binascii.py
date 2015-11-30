@@ -9,4 +9,11 @@ for letter in alphabet:
 
 print hexbet
 
-print 'meg in hex is: ' + binascii.hexlify('meg')
+#Encode
+meg_hex = binascii.hexlify('meg')
+print 'meg in hex is ' + meg_hex
+
+#Decode
+decode = binascii.unhexlify(meg_hex)
+print meg_hex + (' in words is ') + decode
+
