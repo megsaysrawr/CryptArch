@@ -1,13 +1,13 @@
-`include key_expand.v
+`include 'key_expand.v', 'addroundkey.v', 'diffusion.v'
 
-module high_level_encryptor
+module encryptor
 (
-input [127:0] text,
-input [127:0] aes_key,
-input start_aes,
+input [127:0] plaintext,
+input [127:0] key,
+input rst,
 input clk,
 output reg [127:0] ciphertext,
-output reg encryptor_done
+output reg done
 );
 
 //The encryption module will perform AES encryption upon a 128 bit plaintext input. 
@@ -24,7 +24,7 @@ reg key7;
 reg key8;
 reg key9;
 
-key_expand.v(aes_key, key1, key2, key3, key4, key5, key6, key7, key8, key9);
+key_expand (aes_key, key1, key2, key3, key4, key5, key6, key7, key8, key9);
 
 
 endmodule
