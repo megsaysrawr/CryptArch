@@ -72,9 +72,10 @@ endmodule
 
 module diffusion(
 	wire	[7:0] diffusion_in [3:0][3:0],			//square matrix with 8 bits in each element; width is four, depth is four
+	wire	[7:0] srows_out [3:0][3:0],
 	wire	[7:0] diffusion_out [3:0][3:0]
 );
-	reg [7:0] srows_out [3:0][3:0];
+	// reg [7:0] srows_out [3:0][3:0];
 
 	//make a shift_rows module
 	shift_rows srows (.shift_rows_in(diffusion_in),
