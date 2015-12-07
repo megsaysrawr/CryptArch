@@ -1,18 +1,4 @@
-`include sbox_LUT.v
-//module sbox_LUT_testbench
-//(
-// Test bench driver signal connections
-//input	   		begintest,	// Triggers start of testing
-//output reg 		endtest,	// Raise once test completes
-//output reg 		dutpassed,	// Signal test result
-
-// Register File DUT connections
-//output reg [7:0] byte,
-
-//input[7:0] sbyte
-//);
-
-
+`include "sbox_LUT.v"
 module sbox_LUT_testbenchharness();
   wire [7:0] byte;
   wire [7:0] sbyte;
@@ -39,8 +25,7 @@ module sbox_LUT_testbenchharness();
 
   // Initialize outputs from the test bench
   initial begin
-  sbyte = 0;
-  byte = 0;
+ 
   begintest = 0;
   #10
   begintest = 1;
@@ -53,32 +38,118 @@ module sbox_LUT_testbenchharness();
   end
 
 
-always @(posedge begintest) begin
-    $display("Testing Sbox now...");
-    endtest = 0;
-    dutpassed = 1;
-    #10
+
     
 endmodule
 
 
 
-module
+module sbox_LUT_testbench(
+// Test bench driver signal connections
+input	   		begintest,	// Triggers start of testing
+output reg 		endtest,	// Raise once test completes
+output reg 		dutpassed,	// Signal test result
+// DUT connections
+input reg[7:0]		sbyte,
+output reg[7:0]		byte
+);
+
+initial begin
+	byte = 0;
+	
+end
+
+  always @(posedge begintest) begin
+  	$display("Testing SBOX now...");
+    endtest = 0;
+    dutpassed = 1;
+    #10
+
+
 //Test Case 0
   byte=00000000;
   #5
+
   // Verify expectations and report test result
-  if((byte !== 00000000) || (sbyte !== 01100011)) begin //00 maps to 63(hex) 
+  if(sbyte != 8'b01100011) begin //00 maps to 63(hex) 
     dutpassed = 0;  // Set to 'false' on failure
-    $display("");
-  end
-  
-#5
-  if (dutpassed == 1) begin
-      // $display("Register File passed!");
-      endtest = 1;
+    $display("Failed Test 0");
+    $display("byte = %b", byte);
+    $display("sbyte = %b",sbyte);
   end
 
+
+//Test Case 1
+  byte=8'b11111111;
+  #5
+  // Verify expectations and report test result
+  if(sbyte != 8'b00010110) begin //00 maps to 63(hex) 
+    dutpassed = 0;  // Set to 'false' on failure
+    $display("Failed Test 1");
+    $display("byte = %b", byte);
+    $display("sbyte = %b",sbyte);
+  end
+
+
+
+//Test Case 2
+  byte=8'b10101010;
+  #5
+  // Verify expectations and report test result
+  if(sbyte != 8'hac) begin //00 maps to 63(hex) 
+    dutpassed = 0;  // Set to 'false' on failure
+    $display("Failed Test 2");
+    $display("byte = %b", byte);
+    $display("sbyte = %b",sbyte);
+  end
+
+
+
+  //Test Case 3
+  byte=8'b10101010;
+  #5
+  // Verify expectations and report test result
+  if(sbyte != 8'hac) begin //00 maps to 63(hex) 
+    dutpassed = 0;  // Set to 'false' on failure
+    $display("Failed Test 3");
+    $display("byte = %b", byte);
+    $display("sbyte = %b",sbyte);
+  end
+
+
+
+  //Test Case 4
+  byte=8'b11110000;
+  #5
+  // Verify expectations and report test result
+  if(sbyte != 8'h8c) begin //00 maps to 63(hex) 
+    dutpassed = 0;  // Set to 'false' on failure
+    $display("Failed Test 4");
+    $display("byte = %b", byte);
+    $display("sbyte = %b",sbyte);
+  end
+
+
+
+  //Test Case 5
+  byte=8'b00001111;
+  #5
+  // Verify expectations and report test result
+  if(sbyte != 8'h76) begin //00 maps to 63(hex) 
+    dutpassed = 0;  // Set to 'false' on failure
+    $display("Failed Test 5");
+    $display("byte = %b", byte);
+    $display("sbyte = %b",sbyte);
+  end
+
+
+
+#5
+  if (dutpassed == 1) begin
+       $display("SBOX passed! Great!");
+      endtest = 1;
+  end
+end
   endmodule
 
 
