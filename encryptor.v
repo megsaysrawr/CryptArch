@@ -1,6 +1,6 @@
-`include key_expand.v
+`include 'key_expand.v', 'addroundkey.v', 'diffusion.v'
 
-module high_level_encryptor
+module encryptor
 (
 input [127:0] plaintext,
 input [127:0] key,
