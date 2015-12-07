@@ -34,27 +34,18 @@ module mix_columns(
 	//each column gets its bits mixed up and then spit back out
 	reg [7:0] mixer [3:0][3:0];
 
-	//filling in the mixer matrix element by element, but there HAS to be a better way to do this
+	//filling in the mixer matrix row by row (can also be done column by column or element by element if needed)
 	//row 1
-	[7:0] mixer [3][3] = 8'd2;
-	[7:0] mixer [3][2] = 8'd1;
-	[7:0] mixer [3][1] = 8'd1;
-	[7:0] mixer [3][0] = 8'd3;
+	[7:0] mixer [3][3:0] = {8'd2, 8'd1, 8'd1, 8'd3};
+
 	//row 2
-	[7:0] mixer [2][3] = 8'd3;
-	[7:0] mixer [2][2] = 8'd2;
-	[7:0] mixer [2][1] = 8'd1;
-	[7:0] mixer [2][0] = 8'd1;
+	[7:0] mixer [2][3:0] = {8'd3, 8'd2, 8'd1, 8'd1};
+
 	//row 3
-	[7:0] mixer [1][3] = 8'd1;
-	[7:0] mixer [1][2] = 8'd3;
-	[7:0] mixer [1][1] = 8'd2;
-	[7:0] mixer [1][0] = 8'd1;
+	[7:0] mixer [1][3:0] = {8'd1, 8'd3, 8'd2, 8'd1};
+
 	//row 4
-	[7:0] mixer [0][3] = 8'd1;
-	[7:0] mixer [0][2] = 8'd1;
-	[7:0] mixer [0][1] = 8'd3;
-	[7:0] mixer [0][0] = 8'd2;
+	[7:0] mixer [0][3] = {8'd1, 8'd1, 8'd3, 8'd2};
 
 	//matrix multiplication the linearity way--by hand: one element = add each element in the row times each element in the column
 	//first column
