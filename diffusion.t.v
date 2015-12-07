@@ -4,7 +4,7 @@ module diffusion_test_bench_harness();
 	//wires for the diffusion
 	wire	[7:0] diffusion_in [3:0][3:0];
 	wire	[7:0] diffusion_out [3:0][3:0];
-	wire	[7:0] srows_out [3:0][3:0];
+	// wire	[7:0] srows_out [3:0][3:0];
 
 	//wires for the tester
 	reg begintest;
@@ -16,7 +16,7 @@ module diffusion_test_bench_harness();
 	(	
 		.diffusion_in(diffusion_in),
 		.diffusion_out(diffusion_out),
-		.srows_out(srows_out)
+		// .srows_out(srows_out)
 	);
 
 	diffusion_test_bench tester
@@ -26,7 +26,7 @@ module diffusion_test_bench_harness();
 		.dutpassed(dutpassed),
 		.diffusion_in(diffusion_in),
 		.diffusion_out(diffusion_out),
-		.srows_out(srows_out)
+		// .srows_out(srows_out)
 	);
 
 	initial begin
@@ -48,7 +48,7 @@ module diffusion_test_bench(
 	output reg dutpassed,
 	output reg [7:0] diffusion_in [3:0][3:0],
 	input [7:0] diffusion_out [3:0][3:0],
-	input [7:0] srows_out [3:0][3:0]
+	// input [7:0] srows_out [3:0][3:0]
 );
 
 	always@(posedge begintest) begin
