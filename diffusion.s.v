@@ -45,7 +45,7 @@ module mix_columns(
 	assign mixer [1][3:0] = {8'd1, 8'd3, 8'd2, 8'd1};
 
 	//row 4
-	assign mixer [0][3] = {8'd1, 8'd1, 8'd3, 8'd2};
+	assign mixer [0][3:0] = {8'd1, 8'd1, 8'd3, 8'd2};
 
 	//matrix multiplication the linearity way--by hand: one element = add each element in the row times each element in the column
 	//first column
