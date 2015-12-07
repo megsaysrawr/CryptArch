@@ -2,12 +2,12 @@
 
 module high_level_encryptor
 (
-input [127:0] text,
-input [127:0] aes_key,
-input start_aes,
+input [127:0] plaintext,
+input [127:0] key,
+input rst,
 input clk,
 output reg [127:0] ciphertext,
-output reg encryptor_done
+output reg done
 );
 
 //The encryption module will perform AES encryption upon a 128 bit plaintext input. 
