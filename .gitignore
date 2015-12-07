@@ -1,0 +1,8 @@
+*
+!.gitignore
+!*.v
+!*.do
+!*.md
+!*/
+!*.asm
+!*.png
