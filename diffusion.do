@@ -1,4 +1,4 @@
-vlog -reportprogress 500 -work work diffusion.s.v
-vsim -voptargs="+acc" diffusion
+vlog -reportprogress 500 -work work diffusion.s.v diffusion.t.v
+vsim -voptargs="+acc" diffusion_test_bench_harness
 
-run -all
+run 2000
