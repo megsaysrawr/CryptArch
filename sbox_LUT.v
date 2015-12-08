@@ -1,7 +1,7 @@
 
 module sbox_LUT(
-	input [7:0] byte,
-	output reg [7:0] sbyte
+	input[7:0] byte,
+	output reg[7:0] sbyte
 	);
 
 always @(byte) begin
