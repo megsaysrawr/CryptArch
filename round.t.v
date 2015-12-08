@@ -50,7 +50,8 @@ module roundtestbench (
 
 	output reg [7:0] roundin [3:0][3:0],
 	output reg [7:0] key [3:0] [3:0],
-	output reg rst, clk
+	output reg rst, 
+	output reg clk,
 	input [7:0] roundout [3:0] [3:0]
 );
 

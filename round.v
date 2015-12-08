@@ -14,12 +14,12 @@ input clk,
 output reg [7:0] roundout [3:0][3:0]
 );
 
-wire substitutekeyout,
-wire diffusionout,
+wire substitutekeyout;
+wire diffusionout;
 
 always @(posedge clk) begin
-  substitutekey subkey(roundin, substituteout);
-  diffusion dif (substituteout, diffusionout);
+  substitutekey subkey(roundin, substitutekeyout);
+  diffusion dif (substitutekeyout, diffusionout);
   addroundkey addrk (diffusionout, roundout);
 end
 
