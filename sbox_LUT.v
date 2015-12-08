@@ -1,11 +1,11 @@
 
 module sbox_LUT(
-	input [7:0] byte,
+	input [7:0] byte_in,
 	output reg [7:0] sbyte
 	);
 
-always @(byte) begin
-case (byte)
+always @(byte_in) begin
+case (byte_in)
 //this seems inefficient but it's what we discussed doing in our meeting
 8'h00: sbyte = 8'h63;
 8'h01: sbyte = 8'h7c;
