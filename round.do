@@ -1,7 +1,7 @@
 vdel - lib work - all
 vlib work
 
-vlog -reportprogress 300 -work work round.t.v substitutekey.v diffusion.v addroundkey.v round.v
+vlog -reportprogress 300 -work work substitutekey.v diffusion.v addroundkey.v round.v round.t.v 
 vsim -voptargs="+acc" testround
 
 add wave -position insertpoint  \
