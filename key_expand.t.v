@@ -103,15 +103,15 @@ end
 
 
 //Test Case 0
-	aes_key = 0; 
-	 #5
+	aes_key = 128'h534f4d452031323820424954204b4559;
+ #5
 
   // Verify expectations and report test result
-  if(key1 == 127'b0) begin //00 maps to 63(hex) 
+  if(key1 == 128'he12186f2c110b4cae152fd9ec119b8c7) begin //00 maps to 63(hex) 
     dutpassed = 0;  // Set to 'false' on failure
     $display("Failed Test 0");
-    $display("key1 = %b", key1);
-    $display("key2 = %b", key2);
+    $display("key1 = %h", key1);
+    $display("key2 = %h", key2);
   end
 
 
@@ -119,7 +119,20 @@ end
 
   if (dutpassed == 1) begin
        $display("KEY EXPAND passed! Great!");
-       endtest = 1;
+
+	$display("key1 = %h", key1);
+	$display("key2 = %h", key2);
+	$display("key3 = %h", key3);
+	$display("key4 = %h", key4);
+	$display("key5 = %h", key5);
+	$display("key6 = %h", key6);
+	$display("key7 = %h", key7);
+	$display("key8 = %h", key8);
+	$display("key9 = %h", key9);
+	$display("key10 =%h", key10);
+
+
+	endtest = 1;
   end
 end
   endmodule
