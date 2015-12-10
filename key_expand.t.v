@@ -122,6 +122,25 @@ end
     $display("key10 =%h", key10);
   end
 
+//Test 1
+	aes_key = 128'h0f1571c947d9e8590cb7ad00af7f6798; 
+
+#50
+if(key1 != 128'hdc9037b09b49dfe997fe723f388115a7) begin //00 maps to 63(hex) 
+    dutpassed = 0;  // Set to 'false' on failure
+    $display(" ");
+    $display("Failed Test 1");
+    $display("key1 = %h", key1);
+    $display("key2 = %h", key2);	
+    $display("key3 = %h", key3);
+    $display("key4 = %h", key4);
+    $display("key5 = %h", key5);
+    $display("key6 = %h", key6);
+    $display("key7 = %h", key7);
+    $display("key8 = %h", key8);
+    $display("key9 = %h", key9);
+    $display("key10 =%h", key10);
+  end
 
 
 

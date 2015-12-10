@@ -15,9 +15,8 @@ module key_expand(
 
 
 	key_expand_round key_round1(4'b0001, aes_key, key1);
-always@(key1)begin
-	key_expand_round key_round2(4'b0010, key1, key2);	
-end
+	
+	key_expand_round key_round2(4'b0010, key1, key2);
 	key_expand_round key_round3(4'b0011, key2, key3);
 	key_expand_round key_round4(4'b0100, key3, key4);
 	key_expand_round key_round5(4'b0101, key4, key5);
@@ -55,7 +54,6 @@ reg [31:0] new_col0;
 reg [31:0] new_col1;
 reg [31:0] new_col2;
 reg [31:0] new_col3;
-//reg [31:0] new_key_matrix [3:0] [3:0];
 
 
 always @(i) begin
@@ -77,9 +75,7 @@ make_key_matrix keymatrix(key, key_col0, key_col1, key_col2, key_col3);
 assign shifted_byte = key_col0[31:24];
 assign key_col0_shifted = key_col0 << 8; 
 assign key_col0_shiftedms = key_col0_shifted[31:8];
-assign key_col0_top_to_bottom = {key_col0_shiftedms, shifted_byte};
-//assign key_col0_top_to_bottom = {key_col0_shifted + shifted_byte;
-//key_col0_top_to_bottom = {matrixbyte20, matrixbyte10, matrixbyte00, matrixbyte30};
+assign key_col0_top_to_bottom = {key_col0_shiftedms, shifted_byte}; //rightmost column top byte moved to bottom
 sbox_4byte sboxcol0(key_col0_top_to_bottom, key_col0_sboxed);
 assign xor_col = key_col0_sboxed ^ rcon;
 assign new_col3 = key_col3 ^ xor_col;

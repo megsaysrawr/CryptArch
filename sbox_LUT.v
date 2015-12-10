@@ -155,7 +155,7 @@ case (byte_in)
 8'h89:  sbyte = 8'ha7;
 8'h8A:  sbyte = 8'h7e;
 8'h8B:  sbyte = 8'h3d;
-8'h0C:  sbyte = 8'h64;
+8'h8C:  sbyte = 8'h64;
 8'h8D:  sbyte = 8'h5d;
 8'h8E:  sbyte = 8'h19;
 8'h8F:  sbyte = 8'h73;
