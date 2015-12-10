@@ -12,13 +12,13 @@ module key_expand(
 	output [127:0] key9,
 	output [127:0] key10
 );
-	
-	key_expand_round key_round1(4'b0001, aes_key, key1);
-	#10
-	key_expand_round key_round2(4'b0010, key1, key2);
-	##10
-	key_expand_round key_round3(4'b0011, key2, key3);
 
+
+	key_expand_round key_round1(4'b0001, aes_key, key1);
+always@(key1)begin
+	key_expand_round key_round2(4'b0010, key1, key2);	
+end
+	key_expand_round key_round3(4'b0011, key2, key3);
 	key_expand_round key_round4(4'b0100, key3, key4);
 	key_expand_round key_round5(4'b0101, key4, key5);
 	key_expand_round key_round6(4'b0110, key5, key6);
@@ -37,6 +37,7 @@ module key_expand_round(
 	output [127:0] new_key
 	
 	);
+
 
 //reg [7:0]key_matrix [3:0] [3:0];
 reg [31:0] key_col0;
@@ -94,8 +95,6 @@ assign new_key [63:32] = new_col1;
 assign new_key [31:0] = new_col0;
 
 
-//XORCOL does not work
-//KEYCOL's do not work
 endmodule
 
 
@@ -114,9 +113,6 @@ module make_key_matrix(
 	assign key_col0 =  key[31:0];
 	
 endmodule
-
-
-
 
 module sbox_4byte(
 	input [31:0] col_4byte,
