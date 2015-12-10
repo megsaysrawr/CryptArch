@@ -519,9 +519,6 @@ case (byte_in)
 
 
 
-
-
-default: $display("Error in Sbox");
 endcase 
 end
 

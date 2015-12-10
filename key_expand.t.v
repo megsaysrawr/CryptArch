@@ -107,11 +107,19 @@ end
  #5
 
   // Verify expectations and report test result
-  if(key1 == 128'he12186f2c110b4cae152fd9ec119b8c7) begin //00 maps to 63(hex) 
+  if(key1 != 128'he12186f2c110b4cae152fd9ec119b8c7 || key10 != 128'h3ea222a7987a5f4a38dc254fec19fc49) begin //00 maps to 63(hex) 
     dutpassed = 0;  // Set to 'false' on failure
     $display("Failed Test 0");
     $display("key1 = %h", key1);
-    $display("key2 = %h", key2);
+    $display("key2 = %h", key2);	
+    $display("key3 = %h", key3);
+    $display("key4 = %h", key4);
+    $display("key5 = %h", key5);
+    $display("key6 = %h", key6);
+    $display("key7 = %h", key7);
+    $display("key8 = %h", key8);
+    $display("key9 = %h", key9);
+    $display("key10 =%h", key10);
   end
 
 

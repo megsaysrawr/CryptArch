@@ -12,9 +12,13 @@ module key_expand(
 	output [127:0] key9,
 	output [127:0] key10
 );
+	
 	key_expand_round key_round1(4'b0001, aes_key, key1);
+	#10
 	key_expand_round key_round2(4'b0010, key1, key2);
+	##10
 	key_expand_round key_round3(4'b0011, key2, key3);
+
 	key_expand_round key_round4(4'b0100, key3, key4);
 	key_expand_round key_round5(4'b0101, key4, key5);
 	key_expand_round key_round6(4'b0110, key5, key6);
@@ -22,6 +26,7 @@ module key_expand(
 	key_expand_round key_round8(4'b1000, key7, key8);
 	key_expand_round key_round9(4'b1001, key8, key9);
 	key_expand_round key_round10(4'b1010, key9, key10);
+	
 
 endmodule
 
@@ -83,7 +88,7 @@ assign new_col0 = new_col1 ^ key_col0;
 //$display("col3= %h", new_col3);
 //assign new_key= {new_col3, new_col2, new_col1, new_col0};
 //assign new_key = new_key_matrix;
-assign new_key [127:96] = new_col3;
+assign new_key [127:96] =  new_col3;
 assign new_key [95:64] = new_col2;
 assign new_key [63:32] = new_col1;
 assign new_key [31:0] = new_col0;
@@ -102,65 +107,11 @@ module make_key_matrix(
 	output reg [31:0] key_col3 
 	);
 	
-	wire matrixbyte33;
-	assign matrixbyte33 = key[127:120];
-	wire matrixbyte23;
-	assign matrixbyte23 = key[119:112];
-	wire matrixbyte13;
-	assign matrixbyte13 = key[111:104];
-	wire matrixbyte03;
-	assign matrixbyte03 = key[103:96];
-	wire matrixbyte32;
-	assign matrixbyte32 = key[95:88];
-	wire matrixbyte22;
-	assign matrixbyte22 = key[87:80];
-	wire matrixbyte12;
-	assign matrixbyte12 = key[79:72];
-	wire matrixbyte02;
-	assign matrixbyte02 = key[71:64];
-	wire matrixbyte31;
-	assign matrixbyte31 = key[63:56];
-	wire matrixbyte21;
-	assign matrixbyte21 = key[55:48];
-	wire matrixbyte11;
-	assign matrixbyte11 = key[47:40];
-	wire matrixbyte01;
-	assign matrixbyte01 = key[39:32];
-	wire matrixbyte30;
-	assign matrixbyte30 = key[31:24];
-	wire matrixbyte20;
-	assign matrixbyte20 = key[23:16];
-	wire matrixbyte10;
-	assign matrixbyte10 = key[15:8];
-	wire matrixbyte00;
-	assign matrixbyte00 = key[7:0];
 	
-
-
-	//assign key_matrix [3] [3] = matrixbyte33;
-	//assign key_matrix [2] [3]  = matrixbyte23;
-	//assign key_matrix [1] [3]  =  matrixbyte13;
-	//assign key_matrix [0] [3]  =  matrixbyte03;
-	//assign key_matrix [3] [2]  =  matrixbyte32;
-	//assign key_matrix [2] [2]  = matrixbyte22;
-	//assign key_matrix [1] [2]  = matrixbyte12 ; 
-	//assign key_matrix [0] [2] = matrixbyte02 ;
-	//assign key_matrix [3] [1] = matrixbyte31 ;
-	//assign key_matrix [2] [1] =  matrixbyte21;
-	//assign key_matrix [1] [1] = matrixbyte11;
-	//assign key_matrix [0] [1] = matrixbyte01 ;
-	//assign key_matrix [3] [0] =  matrixbyte30;
-	//assign key_matrix [2] [0] = matrixbyte20 ;
-	//assign key_matrix [1] [0] = matrixbyte10;
-	//assign key_matrix [0] [0] =  matrixbyte00;
-	//assign key_col3  = {matrixbyte33, matrixbyte23, matrixbyte13, matrixbyte03};
-	//assign key_col2  = {matrixbyte32, matrixbyte22, matrixbyte12, matrixbyte02};
-	//assign key_col1  = {matrixbyte31, matrixbyte21, matrixbyte11, matrixbyte01};
-	//assign key_col0  = {matrixbyte30, matrixbyte20, matrixbyte10, matrixbyte00};
-	//assign key_col3 [3:0] =  key_matrix[3:0][3];
-	//assign key_col2 [3:0] =  key[95:64];
-	//assign key_col1 [3:0] =  key[63:32];
-	//assign key_col0 [3:0] =  key[31:0];
+	assign key_col3  =  key[127:96];
+	assign key_col2  = key[95:64];
+	assign key_col1 =  key[63:32];
+	assign key_col0 =  key[31:0];
 	
 endmodule
 
