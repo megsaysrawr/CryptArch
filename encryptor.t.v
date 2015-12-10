@@ -34,15 +34,11 @@ module testencryptor();
         begintest = 0;
         #10;
         begintest = 1;
-        #10000;
+        #1000;
     end
 
     always @(posedge endtest) begin
-        if (dutpassed == 1) begin
-            $display("\n\033[32mDUT passed: %b\033[37m\n", dutpassed);
-        end else begin
-            $display("\n\033[31mDUT passed: %b\033[37m\n", dutpassed);
-        end
+        $display("DUT passed: %b", dutpassed);
     end
 	
 endmodule
@@ -82,7 +78,7 @@ module encryptortestbench (
 			$display("Encrptor Broken");
 		end
 		
-		#5
+		#4
 		if (done != 1'b0) begin
 			dutpassed = 0;
 			$display("Timing Broken: Done when should not be.");
@@ -99,7 +95,7 @@ module encryptortestbench (
 		end
 
 		endtest = 1;
-		$finish;
+		//$finish;
 	end
 
 endmodule
