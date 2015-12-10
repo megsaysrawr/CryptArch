@@ -29,23 +29,23 @@ reg key7;
 reg key8;
 reg key9;
 reg key10;
-reg [7:0] matrixifiedtext [3:0][3:0]
-reg [7:0] matrixifiedkey [3:0][3:0]
-reg [7:0] initialtext [3:0][3:0]
-reg [7:0] round0output [3:0][3:0]
-reg [7:0] round1output [3:0][3:0]
-reg [7:0] round2output [3:0][3:0]
-reg [7:0] round3output [3:0][3:0]
-reg [7:0] round4output [3:0][3:0]
-reg [7:0] round5output [3:0][3:0]
-reg [7:0] round6output [3:0][3:0]
-reg [7:0] round7output [3:0][3:0]
-reg [7:0] round8output [3:0][3:0]
-reg [7:0] round9output [3:0][3:0]
-reg [7:0] round10output [3:0][3:0]
+reg [7:0] matrixifiedtext [3:0][3:0];
+reg [7:0] matrixifiedkey [3:0][3:0];
+reg [7:0] initialtext [3:0][3:0];
+reg [7:0] round0output [3:0][3:0];
+reg [7:0] round1output [3:0][3:0];
+reg [7:0] round2output [3:0][3:0];
+reg [7:0] round3output [3:0][3:0];
+reg [7:0] round4output [3:0][3:0];
+reg [7:0] round5output [3:0][3:0];
+reg [7:0] round6output [3:0][3:0];
+reg [7:0] round7output [3:0][3:0];
+reg [7:0] round8output [3:0][3:0];
+reg [7:0] round9output [3:0][3:0];
+reg [7:0] round10output [3:0][3:0];
 
 matrixify makematrix(plaintext, matrixifiedtext);
-matrixify makematrix(key, matrixifiedkey);
+matrixify makekey(key, matrixifiedkey);
 
 key_expand makekeys(key, key1, key2, key3, key4, key5, key6, key7, key8, key9, key10);
 addroundkey initialround(matrixifiedtext, matrixifiedkey, initialtext);
@@ -60,6 +60,6 @@ round round7(round6output, key8, rst, clk, round7output);
 round round8(round8output, key9, rst, clk, round9output);
 finalround round9(round9output, key10, rst, clk, round10output);
 dematrixify finaloutput(round10output, ciphertext);
-done = 1;
+assign done = 1;
 
 endmodule

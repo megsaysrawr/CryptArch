@@ -1,9 +1,9 @@
 //------------------------------------------------------------------------
 // Encrption test bench
 //------------------------------------------------------------------------
-`include "encrptor.v"
+`include "encryptor.v"
 
-module testencrptor();	
+module testencryptor();	
 	wire [127:0] ciphertext;	
 	wire         done;
 	wire [127:0] plaintext;
@@ -13,7 +13,7 @@ module testencrptor();
 	reg	begintest;
 	wire dutpassed;
 
-	encrptor dut(.ciphertext(ciphertext),
+	encryptor dut(.ciphertext(ciphertext),
 			.done(done),
 			.plaintext(plaintext),
 			.key(key),
