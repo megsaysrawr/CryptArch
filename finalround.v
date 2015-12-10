@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------
-// Round
+// Final Round
 //------------------------------------------------------------------------
 `include "substitutekey.v" 
 `include "diffusion.v" 
@@ -19,7 +19,7 @@ wire [7:0] diffusionout [3:0][3:0];
 
 // always @(posedge clk) begin
   substitutekey subkey(roundin, substitutekeyout); 
-  diffusion dif (substitutekeyout, diffusionout); 
+  shiftrows shift (substitutekeyout, diffusionout); 
   addroundkey addrk (diffusionout, key, roundout); 
 // end
 
