@@ -1,4 +1,9 @@
-`include 'key_expand.v', 'addroundkey.v', 'diffusion.v'
+//------------------------------------------------------------------------
+// Encryptor
+//------------------------------------------------------------------------
+`include "key_expand.v"
+`include "addroundkey.v"
+`include "diffusion.v"
 
 module encryptor
 (
@@ -12,8 +17,8 @@ output done
 
 //The encryption module will perform AES encryption upon a 128 bit plaintext input. 
 //It will also require a 128 bit key. The module is defined above. 
-//The encryptor will begin on the first positive clock edge when start_aes is high. 
-//When encryptor_done goes high, the ciphertext output is ready to be read. 
+//The encryptor will begin on the first positive clock edge when rst is high. 
+//When done goes high, the ciphertext output is ready to be read. 
 reg key1;
 reg key2;
 reg key3;
@@ -23,6 +28,7 @@ reg key6;
 reg key7;
 reg key8;
 reg key9;
+reg key10;
 reg [7:0] matrixifiedtext [3:0][3:0]
 reg [7:0] matrixifiedkey [3:0][3:0]
 reg [7:0] initialtext [3:0][3:0]
@@ -53,7 +59,7 @@ round round6(round5output, key7, rst, clk, round6output);
 round round7(round6output, key8, rst, clk, round7output);
 round round8(round8output, key9, rst, clk, round9output);
 finalround round9(round9output, key10, rst, clk, round10output);
-done = 1;
 dematrixify finaloutput(round10output, ciphertext);
+done = 1;
 
 endmodule
