@@ -4,7 +4,6 @@ module diffusion_test_bench_harness();
 	//wires for the diffusion
 	wire	[7:0] diffusion_in [3:0][3:0];
 	wire	[7:0] diffusion_out [3:0][3:0];
-	// wire	[7:0] srows_out [3:0][3:0];
 
 	//wires for the tester
 	reg begintest;
@@ -16,7 +15,6 @@ module diffusion_test_bench_harness();
 	(	
 		.diffusion_in(diffusion_in),
 		.diffusion_out(diffusion_out)
-		// .srows_out(srows_out)
 	);
 
 	diffusion_test_bench tester
@@ -26,7 +24,6 @@ module diffusion_test_bench_harness();
 		.dutpassed(dutpassed),
 		.diffusion_in(diffusion_in),
 		.diffusion_out(diffusion_out)
-		// .srows_out(srows_out)
 	);
 
 	initial begin
@@ -48,7 +45,6 @@ module diffusion_test_bench(
 	output reg dutpassed,
 	output reg [7:0] diffusion_in [3:0][3:0],
 	input [7:0] diffusion_out [3:0][3:0]
-	// input [7:0] srows_out [3:0][3:0]
 );
 
 	always@(posedge begintest) begin
@@ -83,16 +79,18 @@ module diffusion_test_bench(
 		#20
 
 		$display("diffusion_in");
-		$display("%d %d %d %d", diffusion_in[3][3], diffusion_in[3][2], diffusion_in[3][1], diffusion_in[3][0]);
-		$display("%d %d %d %d", diffusion_in[2][3], diffusion_in[2][2], diffusion_in[2][1], diffusion_in[2][0]);
-		$display("%d %d %d %d", diffusion_in[1][3], diffusion_in[1][2], diffusion_in[1][1], diffusion_in[1][0]);
-		$display("%d %d %d %d", diffusion_in[0][3], diffusion_in[0][2], diffusion_in[0][1], diffusion_in[0][0]);
+		$display("%h %h %h %h", diffusion_in[3][3], diffusion_in[3][2], diffusion_in[3][1], diffusion_in[3][0]);
+		$display("%h %h %h %h", diffusion_in[2][3], diffusion_in[2][2], diffusion_in[2][1], diffusion_in[2][0]);
+		$display("%h %h %h %h", diffusion_in[1][3], diffusion_in[1][2], diffusion_in[1][1], diffusion_in[1][0]);
+		$display("%h %h %h %h", diffusion_in[0][3], diffusion_in[0][2], diffusion_in[0][1], diffusion_in[0][0]);
 
 		$display("diffusion_out");
-		$display("%d %d %d %d", diffusion_out[3][3], diffusion_out[3][2], diffusion_out[3][1], diffusion_out[3][0]);
-		$display("%d %d %d %d", diffusion_out[2][3], diffusion_out[2][2], diffusion_out[2][1], diffusion_out[2][0]);
-		$display("%d %d %d %d", diffusion_out[1][3], diffusion_out[1][2], diffusion_out[1][1], diffusion_out[1][0]);
-		$display("%d %d %d %d", diffusion_out[0][3], diffusion_out[0][2], diffusion_out[0][1], diffusion_out[0][0]);
+		$display("%h %h %h %h", diffusion_out[3][3], diffusion_out[3][2], diffusion_out[3][1], diffusion_out[3][0]);
+		$display("%h %h %h %h", diffusion_out[2][3], diffusion_out[2][2], diffusion_out[2][1], diffusion_out[2][0]);
+		$display("%h %h %h %h", diffusion_out[1][3], diffusion_out[1][2], diffusion_out[1][1], diffusion_out[1][0]);
+		$display("%h %h %h %h", diffusion_out[0][3], diffusion_out[0][2], diffusion_out[0][1], diffusion_out[0][0]);
+
+
 	#5
 	endtest = 1;
 	end
