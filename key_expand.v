@@ -1,4 +1,3 @@
-`include "sbox_LUT.v"
 module key_expand(
 	input [127:0] aes_key,
 	output [127:0] key1,

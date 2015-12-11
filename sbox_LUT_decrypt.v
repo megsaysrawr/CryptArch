@@ -1,4 +1,3 @@
-
 module sbox_LUT_decrypt(
 	input [7:0] byte_in,
 	output reg [7:0] sbyte

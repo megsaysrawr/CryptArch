@@ -1,4 +1,3 @@
-`include "key_expand.v"
 module key_expand_testbenchharness();
   wire [127:0] aes_key;
   wire [127:0] key1;

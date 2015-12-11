@@ -1,7 +1,6 @@
 //------------------------------------------------------------------------
 // Substitute Key test bench
 //------------------------------------------------------------------------
-`include "substitutekey.v"
 module testsubstitutekey();	
 	wire [7:0] subkeyout [3:0] [3:0];	
 	wire [7:0] subkeyin [3:0] [3:0];

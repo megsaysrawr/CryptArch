@@ -7,8 +7,6 @@ All of this code implies that the matrix is constructed [row, column].
 i.e. [3][3:0] will give you all of the top row and [3:0][3] will give you all of the first column
 */
 
-`include "mix_cols.v"
-
 module shift_rows(
 	input	[7:0] shift_rows_in [3:0][3:0],			//square matrix with 8 bits in each element; width is four, depth is four
 	output	[7:0] shift_rows_out [3:0][3:0]

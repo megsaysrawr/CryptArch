@@ -25,4 +25,4 @@ s0^s1^xtime(s2)^xtime(s3)^s3,xtime(s0)^s0^s1^s2^xtime(s3)};
 endfunction 
 assign final_col = mix_col(input_col[31:24], input_col[23:16], input_col[15:8], input_col [7:0]);
 
-endmodule;
+endmodule
