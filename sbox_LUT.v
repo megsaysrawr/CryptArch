@@ -92,7 +92,7 @@ case (byte_in)
 8'h4E:  sbyte = 8'h2f;
 8'h4F:  sbyte = 8'h84;
 
-8'h50:  sbyte = 8'h43;
+8'h50:  sbyte = 8'h53;
 8'h51:  sbyte = 8'hd1;
 8'h52:  sbyte = 8'h00;
 8'h53:  sbyte = 8'hed;
