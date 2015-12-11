@@ -1,7 +1,6 @@
 //------------------------------------------------------------------------
 // Add Round Key test bench
 //------------------------------------------------------------------------
-`include "addroundkey.v"
 module testaddroundkey();	
 	wire [7:0] shiftrowsout [3:0] [3:0];	
 	wire [7:0] roundkey [3:0] [3:0];

@@ -1,7 +1,9 @@
 vdel - lib work - all
-vlib work
+vlib work
 
-vlog -reportprogress 300 -work work key_expand.t.v
+
+vlog -reportprogress 300 -work work key_expand.v key_expand.t.v sbox_LUT.v
+
 vsim -voptargs="+acc" key_expand_testbenchharness
 
 add wave -position insertpoint  \

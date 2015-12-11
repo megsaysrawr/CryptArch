@@ -1,4 +1,3 @@
-`include "sbox_LUT.v"
 module sbox_LUT_testbenchharness();
   wire [7:0] byte_in;
   wire [7:0] sbyte;

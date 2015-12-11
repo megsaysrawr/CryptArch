@@ -1,11 +1,6 @@
 //------------------------------------------------------------------------
 // Encryptor
 //------------------------------------------------------------------------
-`include "key_expand.v"
-`include "addroundkey.v"
-`include "diffusion.v"
-`include "finalround.v"
-
 module encryptor
 (
 input [127:0] plaintext,

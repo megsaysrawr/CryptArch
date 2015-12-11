@@ -1,4 +1,3 @@
-
 module sbox_LUT(
 	input [7:0] byte_in,
 	output reg [7:0] sbyte
