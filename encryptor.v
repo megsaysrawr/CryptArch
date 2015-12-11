@@ -8,7 +8,7 @@ input [127:0] key,
 input rst,
 input clk,
 output reg [127:0] ciphertext,
-output done
+output reg done
 );
 
 //The encryption module will perform AES encryption upon a 128 bit plaintext input. 
@@ -77,6 +77,10 @@ round round7(round6output, mkey8, rst, clk, round7output);
 round round8(round8output, mkey9, rst, clk, round9output);
 finalround round9(round9output, mkey10, rst, clk, round10output);
 dematrixify finaloutput(round10output, ciphertext);
-assign done = 1;
+
+initial begin
+if (done != 1'b1)
+	assign done = 1;
+end
 
 endmodule

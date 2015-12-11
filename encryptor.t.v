@@ -76,7 +76,7 @@ module encryptortestbench (
 			$display("3-Encrptor Broken");
 		end
 		
-		#4000
+		#4
 		if (done != 1'b0) begin
 			dutpassed = 0;
 			$display("4-Timing Broken: Done when should not be.");
