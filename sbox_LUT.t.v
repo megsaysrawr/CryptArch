@@ -1,13 +1,12 @@
-`include "sbox_LUT.v"
 module sbox_LUT_testbenchharness();
-  wire [7:0] byte;
+  wire [7:0] byte_in;
   wire [7:0] sbyte;
   reg		begintest;	// Set High to begin testing register file
   wire		dutpassed;	// Indicates whether register file passed tests
 
   sbox_LUT DUT
   (
-    .byte(byte),
+    .byte_in(byte_in),
     .sbyte(sbyte)
   );
 
@@ -19,7 +18,7 @@ module sbox_LUT_testbenchharness();
     .begintest(begintest),
     .endtest(endtest), 
     .dutpassed(dutpassed),
-    .byte(byte),
+    .byte_in(byte_in),
     .sbyte(sbyte)
   );
 
@@ -51,11 +50,11 @@ output reg 		endtest,	// Raise once test completes
 output reg 		dutpassed,	// Signal test result
 // DUT connections
 input reg[7:0]		sbyte,
-output reg[7:0]		byte
+output reg[7:0]		byte_in
 );
 
 initial begin
-	byte = 0;
+	byte_in = 0;
 	
 end
 
@@ -67,78 +66,78 @@ end
 
 
 //Test Case 0
-  byte=00000000;
+  byte_in=00000000;
   #5
 
   // Verify expectations and report test result
   if(sbyte != 8'b01100011) begin //00 maps to 63(hex) 
     dutpassed = 0;  // Set to 'false' on failure
     $display("Failed Test 0");
-    $display("byte = %b", byte);
+    $display("byte_in = %b", byte_in);
     $display("sbyte = %b",sbyte);
   end
 
 
 //Test Case 1
-  byte=8'b11111111;
+  byte_in=8'b11111111;
   #5
   // Verify expectations and report test result
   if(sbyte != 8'b00010110) begin //00 maps to 63(hex) 
     dutpassed = 0;  // Set to 'false' on failure
     $display("Failed Test 1");
-    $display("byte = %b", byte);
+    $display("byte_in = %b", byte_in);
     $display("sbyte = %b",sbyte);
   end
 
 
 
 //Test Case 2
-  byte=8'b10101010;
+  byte_in=8'b10101010;
   #5
   // Verify expectations and report test result
   if(sbyte != 8'hac) begin //00 maps to 63(hex) 
     dutpassed = 0;  // Set to 'false' on failure
     $display("Failed Test 2");
-    $display("byte = %b", byte);
+    $display("byte_in = %b", byte_in);
     $display("sbyte = %b",sbyte);
   end
 
 
 
   //Test Case 3
-  byte=8'b10101010;
+  byte_in=8'b10101010;
   #5
   // Verify expectations and report test result
   if(sbyte != 8'hac) begin //00 maps to 63(hex) 
     dutpassed = 0;  // Set to 'false' on failure
     $display("Failed Test 3");
-    $display("byte = %b", byte);
+    $display("byte_in = %b", byte_in);
     $display("sbyte = %b",sbyte);
   end
 
 
 
   //Test Case 4
-  byte=8'b11110000;
+  byte_in=8'b11110000;
   #5
   // Verify expectations and report test result
   if(sbyte != 8'h8c) begin //00 maps to 63(hex) 
     dutpassed = 0;  // Set to 'false' on failure
     $display("Failed Test 4");
-    $display("byte = %b", byte);
+    $display("byte_in = %b", byte_in);
     $display("sbyte = %b",sbyte);
   end
 
 
 
   //Test Case 5
-  byte=8'b00001111;
+  byte_in=8'b00001111;
   #5
   // Verify expectations and report test result
   if(sbyte != 8'h76) begin //00 maps to 63(hex) 
     dutpassed = 0;  // Set to 'false' on failure
     $display("Failed Test 5");
-    $display("byte = %b", byte);
+    $display("byte_in = %b", byte_in);
     $display("sbyte = %b",sbyte);
   end
 

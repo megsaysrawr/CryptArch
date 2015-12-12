@@ -1,4 +1,3 @@
-`include "sbox_LUT.v"
 module key_expand(
 	input [127:0] aes_key,
 	output [127:0] key1,
@@ -17,6 +16,7 @@ module key_expand(
 	key_expand_round key_round1(4'b0001, aes_key, key1);
 	
 	key_expand_round key_round2(4'b0010, key1, key2);
+
 	key_expand_round key_round3(4'b0011, key2, key3);
 	key_expand_round key_round4(4'b0100, key3, key4);
 	key_expand_round key_round5(4'b0101, key4, key5);

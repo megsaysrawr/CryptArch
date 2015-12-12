@@ -1,4 +1,3 @@
-
 module sbox_LUT(
 	input [7:0] byte_in,
 	output reg [7:0] sbyte
@@ -92,7 +91,7 @@ case (byte_in)
 8'h4E:  sbyte = 8'h2f;
 8'h4F:  sbyte = 8'h84;
 
-8'h50:  sbyte = 8'h43;
+8'h50:  sbyte = 8'h53;
 8'h51:  sbyte = 8'hd1;
 8'h52:  sbyte = 8'h00;
 8'h53:  sbyte = 8'hed;
@@ -200,7 +199,7 @@ case (byte_in)
 8'hB3:  sbyte = 8'h6d;
 8'hB4:  sbyte = 8'h8d;
 8'hB5:  sbyte = 8'hd5;
-8'hB6:  sbyte = 8'h43;
+8'hB6:  sbyte = 8'h4e;
 8'hB7:  sbyte = 8'ha9;
 8'hB8:  sbyte = 8'h6c;
 8'hB9:  sbyte = 8'h56;

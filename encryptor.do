@@ -1,7 +1,8 @@
 vdel - lib work - all
-vlib work
+vlib work
 
-vlog -reportprogress 300 -work work encryptor.v encryptor.t.v 
+
+vlog -reportprogress 300 -work work encryptor.v encryptor.t.v key_expand.v addroundkey.v diffusion.v finalround.v matrixify.v round.v dematrixify.v
 vsim -voptargs="+acc" testencryptor
 
 add wave -position insertpoint  \
@@ -13,6 +14,6 @@ sim:/testencryptor/ciphertext \
 sim:/testencryptor/begintest \
 sim:/testencryptor/endtest \
 sim:/testencryptor/dutpassed
-run -all
+run 6000
 
 wave zoom full

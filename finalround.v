@@ -1,16 +1,12 @@
 //------------------------------------------------------------------------
 // Final Round
 //------------------------------------------------------------------------
-`include "substitutekey.v" 
-`include "diffusion.v" 
-`include "addroundkey.v"
-
 module finalround
 (
 input [7:0] roundin [3:0][3:0],
 input [7:0] key [3:0][3:0],
 input rst,
-input clk,
+//input clk,
 output reg [7:0] roundout [3:0][3:0]
 );
 

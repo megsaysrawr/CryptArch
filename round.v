@@ -1,10 +1,6 @@
 //------------------------------------------------------------------------
 // Round
 //------------------------------------------------------------------------
-`include "substitutekey.v" 
-`include "diffusion.v" 
-`include "addroundkey.v"
-
 module round
 (
 input [7:0] roundin [3:0][3:0],
