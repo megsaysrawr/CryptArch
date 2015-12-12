@@ -6,7 +6,6 @@ module encryptor
 input [127:0] plaintext,
 input [127:0] key,
 input rst,
-input clk,
 output reg [127:0] ciphertext,
 output reg done
 );
@@ -74,16 +73,16 @@ matrixify makekey9(key9, mkey9);
 matrixify makekey10(key10, mkey10);
 
 addroundkey initialround(matrixifiedtext, matrixifiedkey, initialtext);
-round round0(initialtext, mkey1, rst, clk, round0output);
-round round1(round0output, mkey2, rst, clk, round1output);
-round round2(round1output, mkey3, rst, clk, round2output);
-round round3(round2output, mkey4, rst, clk, round3output);
-round round4(round3output, mkey5, rst, clk, round4output);
-round round5(round4output, mkey6, rst, clk, round5output);
-round round6(round5output, mkey7, rst, clk, round6output);
-round round7(round6output, mkey8, rst, clk, round7output);
-round round8(round8output, mkey9, rst, clk, round9output);
-finalround round9(round9output, mkey10, rst, clk, round10output);
+round round0(initialtext, mkey1, rst,  round0output);
+round round1(round0output, mkey2, rst,  round1output);
+round round2(round1output, mkey3, rst, round2output);
+round round3(round2output, mkey4, rst, round3output);
+round round4(round3output, mkey5, rst,  round4output);
+round round5(round4output, mkey6, rst,  round5output);
+round round6(round5output, mkey7, rst,  round6output);
+round round7(round6output, mkey8, rst, round7output);
+round round8(round8output, mkey9, rst,  round9output);
+finalround round9(round9output, mkey10, rst,  round10output);
 dematrixify finaloutput(round10output, ciphertext);
 always @(ciphertext)begin
 assign done =1;

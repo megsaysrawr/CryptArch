@@ -6,7 +6,7 @@ module testencryptor();
 	wire         done;
 	wire [127:0] plaintext;
 	wire [127:0] key;
-	wire rst, clk;
+	wire rst; 
 
 	reg	begintest;
 	wire dutpassed;
@@ -15,8 +15,7 @@ module testencryptor();
 			.done(done),
 			.plaintext(plaintext),
 			.key(key),
-			.rst(rst),
-			.clk(clk));
+			.rst(rst));
 
 	encryptortestbench test(.begintest(begintest),
 							.endtest(endtest),
@@ -25,8 +24,7 @@ module testencryptor();
 			        .done(done),
 			        .plaintext(plaintext),
         			.key(key),
-        			.rst(rst),
-        			.clk(clk));
+        			.rst(rst));
 
 	initial begin
         begintest = 0;
@@ -48,19 +46,19 @@ module encryptortestbench (
 
 	output reg [127:0] plaintext,
 	output reg [127:0] key,
-	output reg rst, clk,
+	output reg rst, 
 	input [127:0] ciphertext,
 	input done
 );
 
-	always begin
-        #5 clk = !clk;
-    end
+	//always begin
+       // #5 clk = !clk;
+   // end
 
 	always @(posedge begintest) begin
 		endtest = 0;
 		dutpassed = 1;
-		clk = 0;
+		//clk = 0;
 
 		plaintext=128'd1407; key=128'd25; rst=1; #10;
 		if (done != 1'b1) begin

@@ -9,7 +9,6 @@ add wave -position insertpoint  \
 sim:/testencryptor/plaintext \
 sim:/testencryptor/key \
 sim:/testencryptor/rst \
-sim:/testencryptor/clk \
 sim:/testencryptor/ciphertext \
 sim:/testencryptor/begintest \
 sim:/testencryptor/endtest \
