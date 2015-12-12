@@ -38,8 +38,7 @@ case (byte_in)
 8'h9c: sbyte = 8'h1c;
 8'ha4: sbyte = 8'h1d;
 8'h72: sbyte = 8'h1e;
-8'hc0: sbyte = 8'hc0;
-
+8'hc0: sbyte = 8'h1f;
 
 8'hb7:  sbyte = 8'h20;
 8'hfd:  sbyte = 8'h21;
@@ -92,7 +91,7 @@ case (byte_in)
 8'h2f:  sbyte = 8'h4e;
 8'h84:  sbyte = 8'h4f;
 
-8'h43:  sbyte = 8'h50;
+8'h53:  sbyte = 8'h50;
 8'hd1:  sbyte = 8'h51;
 8'h00:  sbyte = 8'h52;
 8'hed:  sbyte = 8'h53;
@@ -109,7 +108,7 @@ case (byte_in)
 8'h58:  sbyte = 8'h5e;
 8'hcf:  sbyte = 8'h5f;
 
-8'hd0:  sbyte = 8'h60;
+8'hd0:  sbyte = 8'h60
 8'hef:  sbyte = 8'h61;
 8'haa:  sbyte = 8'h62;
 8'hfb:  sbyte = 8'h63;
@@ -200,7 +199,7 @@ case (byte_in)
 8'h6d:  sbyte = 8'hb3;
 8'h8d:  sbyte = 8'hb4;
 8'hd5:  sbyte = 8'hb5;
-8'h43:  sbyte = 8'hb6;
+8'h4e:  sbyte = 8'hb6;
 8'ha9:  sbyte = 8'hb7;
 8'h6c:  sbyte = 8'hb8;
 8'h56:  sbyte = 8'hb9;
@@ -274,11 +273,10 @@ case (byte_in)
 8'h99:  sbyte = 8'hf9;
 8'h2d:  sbyte = 8'hfa;
 8'h0f:  sbyte = 8'hfb;
-8'hb0:  sbyte = 8'hfc;
+8'hb0:  sbyte = 8'hfc
 8'h54:  sbyte = 8'hfd;
 8'hbb:  sbyte = 8'hfe;
 8'h16:  sbyte = 8'hff;
-
 
 
 endcase 
