@@ -81,9 +81,9 @@ round round4(round3output, mkey5, rst,  round4output);
 round round5(round4output, mkey6, rst,  round5output);
 round round6(round5output, mkey7, rst,  round6output);
 round round7(round6output, mkey8, rst, round7output);
-round round8(round8output, mkey9, rst,  round9output);
-finalround round9(round9output, mkey10, rst,  round10output);
-dematrixify finaloutput(round10output, ciphertext);
+round round8(round7output, mkey9, rst,  round8output);
+finalround round9(round8output, mkey10, rst,  round9output);
+dematrixify finaloutput(round9output, ciphertext);
 always @(ciphertext)begin
 assign done =1;
 end
