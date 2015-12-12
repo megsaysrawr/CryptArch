@@ -6,7 +6,8 @@ module testround();
 	wire [7:0] roundout [3:0] [3:0];	
 	wire [7:0] roundin [3:0][3:0];
 	wire [7:0] key [3:0][3:0];
-	wire rst, clk;
+	wire rst;
+	//wire clk;
 
 	reg begintest;
 	wire dutpassed;
@@ -15,7 +16,7 @@ module testround();
 			.roundin(roundin),
 			.key(key),
 			.rst(rst),
-			.clk(clk));
+			//.clk(clk));
 
 	roundtestbench test(.begintest(begintest),
 			.endtest(endtest),
@@ -24,7 +25,7 @@ module testround();
 			.roundin(roundin),
 			.key(key),
 			.rst(rst),
-			.clk(clk));
+			//.clk(clk));
 
 	initial begin
         begintest = 0;
@@ -47,19 +48,19 @@ module roundtestbench (
 	output reg [7:0] roundin [3:0][3:0],
 	output reg [7:0] key [3:0] [3:0],
 	output reg rst, 
-	output reg clk,
+	//output reg clk,
 	input [7:0] roundout [3:0] [3:0]
 );
 
-	always begin
-        #5 clk = !clk;
-    	end
+	//always begin
+       // #5 clk = !clk;
+    	//end
 
 	always @(posedge begintest) begin
 		$display("Testing round now...");
 		endtest = 0;
 		dutpassed = 1;
-		clk = 0;
+		//clk = 0;
 		#10
 
 		//test case 0--check to see if what is inputted gets stored properly
@@ -73,7 +74,7 @@ module roundtestbench (
 		key[2][3:0] = {8'h21, 8'h10, 8'h52, 8'h19};
 		key[1][3:0] = {8'h86, 8'h64, 8'hfd, 8'hb8};
 		key[0][3:0] = {8'hf2, 8'hca, 8'h9e, 8'hc7};
-		#10
+		// #10
 
 		$display("roundout");
 		$display("%h %h %h %h", roundout[3][3], roundout[3][2], roundout[3][1], roundout[3][0]);
