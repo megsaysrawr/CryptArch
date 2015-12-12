@@ -14,7 +14,7 @@ module testround();
 	round dut(.roundout(roundout),
 			.roundin(roundin),
 			.key(key),
-			.rst(rst),
+			.rst(rst));
 			//.clk(clk));
 
 	roundtestbench test(.begintest(begintest),
@@ -23,7 +23,7 @@ module testround();
 			.roundout(roundout),
 			.roundin(roundin),
 			.key(key),
-			.rst(rst),
+			.rst(rst));
 			//.clk(clk));
 
 	initial begin
@@ -73,7 +73,7 @@ module roundtestbench (
 		key[2][3:0] = {8'h21, 8'h10, 8'h52, 8'h19};
 		key[1][3:0] = {8'h86, 8'h64, 8'hfd, 8'hb8};
 		key[0][3:0] = {8'hf2, 8'hca, 8'h9e, 8'hc7};
-		// #10
+		#10
 
 		$display("roundout");
 		$display("%h %h %h %h", roundout[3][3], roundout[3][2], roundout[3][1], roundout[3][0]);
