@@ -50,9 +50,14 @@ module encryptortestbench (
 	input done
 );
 
+	//always begin
+       // #5 clk = !clk;
+   // end
+
 	always @(begintest) begin
 		endtest = 0;
 		dutpassed = 1;
+		//clk = 0;
 
 		plaintext=128'h636f6d7061726368636f6d7061726368; 
 		key=128'h6772696666696e746772696666696e74; 
