@@ -49,8 +49,16 @@ reg [7:0] round7output [3:0][3:0];
 reg [7:0] round8output [3:0][3:0];
 reg [7:0] round9output [3:0][3:0];
 reg [7:0] round10output [3:0][3:0];
+reg [127:0] textstart;
+initial begin
+if(rst==1 && done==1)begin
+	
+		assign textstart=plaintext;
+		assign done = 0;
+end
+end
 
-matrixify makematrix(plaintext, matrixifiedtext);
+matrixify makematrix(textstart, matrixifiedtext);
 matrixify makekey(key, matrixifiedkey);
 
 key_expand makekeys(key, key1, key2, key3, key4, key5, key6, key7, key8, key9, key10);
@@ -77,10 +85,8 @@ round round7(round6output, mkey8, rst, clk, round7output);
 round round8(round8output, mkey9, rst, clk, round9output);
 finalround round9(round9output, mkey10, rst, clk, round10output);
 dematrixify finaloutput(round10output, ciphertext);
-
-initial begin
-if (done != 1'b1)
-	assign done = 1;
+always @(ciphertext)begin
+assign done =1;
 end
 
 endmodule

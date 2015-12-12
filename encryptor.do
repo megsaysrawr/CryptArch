@@ -2,7 +2,7 @@ vdel - lib work - all
 vlib work
 
 
-vlog -reportprogress 300 -work work encryptor.v encryptor.t.v key_expand.v addroundkey.v diffusion.v finalround.v matrixify.v round.v dematrixify.v
+vlog -reportprogress 300 -work work substitutekey.v key_expand.v addroundkey.v diffusion.v finalround.v matrixify.v round.v dematrixify.v mix_cols.v encryptor.v encryptor.t.v 
 vsim -voptargs="+acc" testencryptor
 
 add wave -position insertpoint  \
