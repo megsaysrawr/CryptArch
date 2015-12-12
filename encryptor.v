@@ -49,12 +49,10 @@ reg [7:0] round8output [3:0][3:0];
 reg [7:0] round9output [3:0][3:0];
 reg [7:0] round10output [3:0][3:0];
 reg [127:0] textstart;
-initial begin
-if(rst==1)begin
+always@(rst==1)begin
 	
 		assign textstart=plaintext;
 		assign done = 0;
-end
 end
 
 matrixify makematrix(textstart, matrixifiedtext);
