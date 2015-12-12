@@ -50,9 +50,11 @@ reg [7:0] round9output [3:0][3:0];
 reg [7:0] round10output [3:0][3:0];
 reg [127:0] textstart;
 
-always@(rst==1)begin
+initial begin
+	assign done = 1;
+end
 
-	
+always @(rst==1 && done==1)begin	
 		assign textstart=plaintext;
 		assign done = 0;
 end
@@ -84,6 +86,7 @@ round round7(round6output, mkey8, rst, round7output);
 round round8(round7output, mkey9, rst,  round8output);
 finalround round9(round8output, mkey10, rst,  round9output);
 dematrixify finaloutput(round9output, ciphertext);
+
 always @(ciphertext)begin
 assign done =1;
 end
