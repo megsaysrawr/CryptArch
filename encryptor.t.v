@@ -27,13 +27,12 @@ module testencryptor();
         			.rst(rst));
 
 	initial begin
-        begintest = 0;
-        #10;
+       
         begintest = 1;
-        #1000;
-    end
+       // #100;
+    	end
 
-    always @(posedge endtest) begin
+    always @(endtest) begin
         $display("DUT passed: %b", dutpassed);
     end
 	
@@ -55,36 +54,32 @@ module encryptortestbench (
        // #5 clk = !clk;
    // end
 
-	always @(posedge begintest) begin
+	always @(begintest) begin
 		endtest = 0;
 		dutpassed = 1;
 		//clk = 0;
 
-		plaintext=128'd1407; key=128'd25; rst=1; #10;
-		if (done != 1'b1) begin
+		plaintext=128'h0123456789abcdeffedcba9876543210; 
+		key=128'h12121212121212121212121212121212; 
+		rst=1; #100
+		if (ciphertext !== 0)begin
+			dutpassed = 0;
+			//$display ("Round0Text - %h:, round4output);
+			$display("Cipher Text = %b", ciphertext);
+			$display("3-Encrptor Broken");
+		end
+		if (ciphertext == 0)begin
+			dutpassed = 0;
+			$display("Cipher Text = %h", ciphertext);
+		end
+	
+		if (ciphertext==128'd1928 && done != 1'b1) begin
 			dutpassed = 0;
 			$display("1-Done Signal Broken: Not done when should be.");
 		end
-		if (rst != 1'b1) begin
-			dutpassed = 0;
-			$display("2-Reset Signal Broken: Not reset when should be.");
-		end
-		if (ciphertext != 128'd00) begin
-			dutpassed = 0;
-			$display("3-Encrptor Broken");
-		end
-		
-		#6
-		if (done != 1'b0) begin
-			dutpassed = 0;
-			$display("4-Timing Broken: Done when should not be.");
-		end
-		if (rst != 1'b0) begin
-			dutpassed = 0;
-			$display("5-Reset Signal Broken: Reset when should not be.");
-		end
 
-		plaintext=128'd285; key=128'd1293; rst=1; #5
+
+		plaintext=128'd285; key=128'd1293; rst=1; #10
 		if (ciphertext != 128'd00) begin
 			dutpassed = 0;
 			$display("6-Encrptor Broken");
