@@ -8,7 +8,6 @@ module encryptor
 input [127:0] ciphertext,
 input [127:0] key,
 input rst,
-input clk,
 output reg [127:0] plaintext,
 output done
 );
@@ -46,16 +45,16 @@ matrixify makematrix(ciphertext, matrixifiedtext);
 matrixify makematrix(key, matrixifiedkey);
 
 key_expand makekeys(key, key1, key2, key3, key4, key5, key6, key7, key8, key9, key10);
-firstround initialround(matrixifiedtext, key10, rst, clk, initialtext);
-reverseround round0(initialtext, key9, rst, clk, round0output);
-reverseround round1(round0output, key8, rst, clk, round1output);
-reverseround round2(round1output, key7, rst, clk, round2output);
-reverseround round3(round2output, key6, rst, clk, round3output);
-reverseround round4(round3output, key5, rst, clk, round4output);
-reverseround round5(round4output, key4, rst, clk, round5output);
-reverseround round6(round5output, key3, rst, clk, round6output);
-reverseround round7(round6output, key2, rst, clk, round7output);
-reverseround round8(round8output, key1, rst, clk, round9output);
+firstround initialround(matrixifiedtext, key10, rst, initialtext);
+reverseround round0(initialtext, key9, rst, round0output);
+reverseround round1(round0output, key8, rst, round1output);
+reverseround round2(round1output, key7, rst, round2output);
+reverseround round3(round2output, key6, rst, round3output);
+reverseround round4(round3output, key5, rst, round4output);
+reverseround round5(round4output, key4, rst, round5output);
+reverseround round6(round5output, key3, rst, round6output);
+reverseround round7(round6output, key2, rst, round7output);
+reverseround round8(round8output, key1, rst, round9output);
 addroundkey lastround(round9output, matrixifiedkey, round10output);
 dematrixify finaloutput(round10output, plaintext);
 done = 1;
