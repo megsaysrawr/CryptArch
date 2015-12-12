@@ -1,33 +1,32 @@
 //------------------------------------------------------------------------
-// Encryption test bench
+// Decryption test bench
 //------------------------------------------------------------------------
-module testencryptor();	
-	wire [127:0] ciphertext;	
+module testdecryptor();	
+	wire [127:0] plaintext;	
 	wire         done;
-	wire [127:0] plaintext;
+	wire [127:0] ciphertext;
 	wire [127:0] key;
 	wire rst; 
 
-	reg	begintest;
+	reg begintest;
 	wire dutpassed;
 
-	encryptor dut(.ciphertext(ciphertext),
+	decryptor dut(.plaintext(plaintext),
 			.done(done),
-			.plaintext(plaintext),
+			.ciphertext(ciphertext),
 			.key(key),
 			.rst(rst));
 
-	encryptortestbench test(.begintest(begintest),
-							.endtest(endtest),
-							.dutpassed(dutpassed),
-							.ciphertext(ciphertext),
-			        .done(done),
-			        .plaintext(plaintext),
-        			.key(key),
-        			.rst(rst));
+	decryptortestbench test(.begintest(begintest),
+				.endtest(endtest),
+				.dutpassed(dutpassed),
+				.plaintext(plaintext),
+				.done(done),
+				.ciphertext(ciphertext),
+				.key(key),
+				.rst(rst));
 
 	initial begin
-       
         begintest = 1;
        // #100;
     	end
@@ -38,31 +37,26 @@ module testencryptor();
 	
 endmodule
 
-module encryptortestbench (
+module decryptortestbench (
 	input begintest,
 	output reg endtest,
 	output reg dutpassed,
 
-	output reg [127:0] plaintext,
+	output reg [127:0] ciphertext,
 	output reg [127:0] key,
 	output reg rst, 
-	input [127:0] ciphertext,
+	input [127:0] plaintext,
 	input done
 );
-
-	//always begin
-       // #5 clk = !clk;
-   // end
 
 	always @(begintest) begin
 		endtest = 0;
 		dutpassed = 1;
-		//clk = 0;
 
-		plaintext=128'h636f6d7061726368636f6d7061726368; 
+		ciphertext=128'h27a15792bba1cb6cba23475fdaa1cb1a;
 		key=128'h6772696666696e746772696666696e74; 
 		rst=1; #100
-		if (ciphertext !== 128'h27a15792bba1cb6cba23475fdaa1cb1a)begin
+		if (plaintext !== 128'h636f6d7061726368636f6d7061726368)begin
 			dutpassed = 0;
 			//$display ("Round0Text - %h:, round4output);
 			$display("Cipher Text = %h", ciphertext);
