@@ -1,0 +1,264 @@
+
+<!DOCTYPE HTML>
+<!--
+    Modified from "Astral" by HTML5 UP
+    html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>GotMail: Olin</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Physical mailbox notification system developed at and for Olin College." />
+        <meta name="keywords" content="" />
+        <link rel="icon" type="image/png" href="images/favicon2.png">
+        <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/init.js"></script>
+        <noscript>
+            <link rel="stylesheet" href="skel.css" />
+            <link rel="stylesheet" href="style.css" />
+            <link rel="stylesheet" href="style-desktop.css" />
+            <link rel="stylesheet" href="style-noscript.css" />
+
+        </noscript>
+        <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+    </head>
+    <body>
+
+        <!-- Wrapper-->
+            <div id="wrapper">
+                
+                <!-- Nav -->
+                    <nav id="nav">
+                        <a href="#me" class="icon fa-home active"><span>Home</span></a>
+                        <a href="#proposal" class="icon fa-lightbulb-o"><span>Proposal</span></a>
+                        <a href="#design" class="icon fa-signal"><span>Initial Design</span></a>
+                        <a href="#final_design" class="icon fa-copy"><span>Final Design</span></a>
+                        <a href="#checkmail" class="icon fa-inbox"><span>Check Mail</span></a>
+                        <a href="#team" class="icon fa-group"><span>Team</span></a>
+                        <a href="https://github.com/megsaysrawr/GotMail" target="_blank" class="icon fa-github"><span>GitHub</span></a>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main">
+                        
+                        <!-- Home -->
+                            <article id="me" class="panel">
+                                <header>
+                                    <h1>GotMail</h1>
+                                    <p>Campus Mailbox Management</p>
+                                </header>
+                                <!-- Black button/white arrow directs to Project Proposal page -->
+                                <a href="#proposal" class="jumplink pic">
+                                    <span class="arrow icon fa-chevron-right"><span>Learn more</span></span>
+                                    <img src="images/pobox1.jpg" alt="" />
+                                </a>
+                            </article>
+
+                        <!-- Project Proposal -->
+                            <article id="proposal" class="panel">
+                                <header>
+                                    <h2>Project Proposal</h2>
+                                </header>
+                                <p> We will be creating a sensor or set of sensors which can detect the presence (or lack of) of mail in an Olin student’s mailbox. This self-contained device will be able to automatically monitor the mailbox’s environment and relay this information to a remote location. This location will receive data from multiple mailboxes, store and interpret this data, and notify mailbox owners appropriately.<br>
+
+                                As an avenue for future work, the remote location could have an interface to allow mailbox owners to check the status of their mailbox or an administrator to check the status of all mailboxes through a web app or mobile application.</p>
+
+                                <!-- <u><h3>Initial Design Goals</u></h3> -->
+                                <h4><u>Initial Design Goal</u> &mdash; <i>Sensing Device</i></h4>
+                                The sensing device will be entirely self-contained. It can be placed entirely into a mailbox, with no external sources of power or network connectivity. As such, it must operate in such a way to manage battery power efficiently, sending an alert before it runs out of power. Network connectivity should be done in such a way to allow multiple sensing devices to communicate to the same remote location.
+                                <br>
+                                <br>
+
+                                <h4><u>Initial Design Goal</u> &mdash; <i>Remote Location</i></h4>
+                                <p>The remote location will receive mailbox data from one or more sensing devices. This will parse and store mailbox sensor data. This will operate without a physical connection to the sensor device.</p>
+                                
+                                <h3>Minimum Deliverable</h3>
+                                <p>We will be able to identify the presence (or non-presence) of mail in an Oliner’s mailbox. We will then send an email or text message to notify the owner of the mailbox.</p>
+
+                                <h3>Extensions</h3>
+                                <ul style="list-style-type:disc">
+                                <li>Integrate the notifications in a user friendly and interactive way.</li>
+                                <li>Central server which the Raspberry Pis sends sensor data to and then forwards the notification to the end user. This would also lend itself to creating an administrator web app to check the status of multiple mailboxes.</li>
+                                <li>Gamification. Get your mail within 5 minutes of notification and get 10 bonus points.</li>
+                                <li>Graph the data to determine the frequency of when people pick up their mail.</li>
+                                <li>Provide commercial services for a Products and Markets team (who has a need for such things).</li>
+                                <br>
+
+                                <h3>Initial Steps/Materials/Thoughts</h3>
+                                We want to measure the dimensions of an Olin mailbox and create a model, either by 3D printing, or laser cutting pieces, for testing purposes.  We would then use a Raspberry Pi and a sensor (most likely an IR sensor or strain gauge) or a photogate to determine whether or not mail is in the mailbox.  We would then send that information to the owner of the mailbox.  For a reach goal, we wanted to talk to IT and determine how to get an Olin domain/run a web server.
+                                <br>
+                                <br>
+
+                                <h3>Angel Advisor</h3>
+                                Kyle and Dimitar should be able to help us because their project last year was similar. But we would love an angel adviser! It would be great if they knew how to use WiFi shields and were able to help us more on the hardware end. Assistance with software integration would be a great bonus.
+
+                            </article>
+
+                        <!-- Initial Design --> 
+                            <article id="design" class="panel">
+                                <header>
+                                    <h2>Initial Design</h2>
+                                </header>
+                                
+                                <h3>Notification</h3>
+                                <p>Our main goal is to notify a user when they receive mail in their mailbox, so our first design decision centered around how to send this notification. We considered text messages, emails, and even Twitter, all of which would be possible using Python. We have chosen email as our first and primary method of user notification. Email is a means of conveying similar information &mdash; information about meetings, about orders, and about deliveries &mdash; and is the natural manner of letting users know that they have received mail, especially at Olin.
+                                </p>
+
+                                <h3>Wireless Connectivity</h3>   
+                                <p>Our next design decision involved determining how to connect the sensors in the mailbox to our online notification center. A Raspberry Pi, (RPi) which lacks an analog to digital converter (ADC), would make it more difficult to interface with some very useful sensors. Additionally, an RPi running as a mobile sensing unit would consume relatively great amounts of power and lacks a native wireless connectivity option &mdash; not ideal for a compact, self-contained sensing unit. A microcontroller, such as the Arduino, is closer to what we need &mdash; Arduinos cost less than an RPi and make it easier to interface with sensors. However, wireless connectivity is still a relatively expensive add-on.<br>
+
+                                Due to these design considerations, we have chosen a Spark Core as the most effective hardware for our purposes. A Spark Core is a tiny microcontroller with tightly integrated wireless connectivity. It allows us to remotely read sensors and run functions using an API.
+                                </p>
+
+                                <h3>Server</h3>   
+                                <p>We determined that we have a need for a server which runs continuously in order to routinely check the mailboxes and send notifications. In future iterations, it is possible that this server need will be met using a Raspberry Pi. However now, in our initial phases of development, using a computer works just fine.
+                                </p>
+
+                                <h3>Model</h3>   
+                                <p>We chose to build a model of one of the Olin mailboxes so we could run tests outside of the mailroom.  We used the dimensions from the mailboxes and built a replica out of MDF.  By having a 3D model that is mobile, we are able to make sure all of our components fit inside of the mailbox and we can rapidly prototype without having to constantly go into the mailroom, which is especially important if we are working when the mailroom is closed.
+                                </p>
+
+                                <h3>Sensors</h3>   
+                                <p>We are still working on determining the best type of sensor for the job. So far, we have considered pressure sensors and light beam IR sensors. Pressure sensors might not be sensitive enough to account for lighter pieces of mail. IR sensors might be too easily tripped. We plan to experiment with different types of sensors in order to find the best available technology.
+                                </p>
+
+                                <h3>Objected Oriented Code</h3>   
+                                <p>Our class structure was designed to allow for ease of scaling. First, we created a Mailbox object. Each Mailbox object in our current iteration has three attributes: got_mail, owner, and last_notified.<br>
+                                
+                                <!-- Making a bulleted list. -->
+                                <ul style="list-style-type:disc">
+                                
+                                <li>got_mail returns a Boolean depending on whether or not there is mail contained in the mailbox.<br></li>
+                                <li>owner contains the contact information of the mailbox owner, in the form of their email address.<br></li>
+                                <li>last_notified returns the time that the user was last pinged. The goal of this attribute is to prevent email spamming of the user. This allows us to only notify the user upon receipt of new mail. This attribute is reset when the user removes their mail.<br></li>
+                                <br>
+                                Each Mailbox also has a method called notify_owner() which sends an email when the sensor detects mail in the mailbox of the user. It also records the time that this notification is sent, to be used by the attribute last_notified.
+                                Once we expand to have multiple Mailboxes, it will be useful for scaling to be able to access a collection of Mailboxes. In order to  do this, we have created a Mailroom class. The Mailroom class currently contains the operating hours of the Mailroom and  a collection of Mailboxes.
+                                </ul>
+                                </p>
+
+                                <h3>UML Diagram</h3>   
+                                <p>Here is our working UML diagram, described by the Object Oriented Code in the previous section.
+                                <img src="images/uml_diagram.jpeg" alt="UML Diagram"/>
+                                </p>
+
+                                <h3>Development Plan: Next Steps</h3>
+                                <ul style="list-style-type:disc">
+                                        <li>Get a sensor</li>
+                                        <li>Implement the object oriented class structure</li>
+                                        <li>Make the script that will check the mailbox state and send emails</li>
+                                        <li>Double down on web</li>
+                                        <li>Optimize the Spark Core (ex. turn off the wireless except when mail is detected)</li>
+                                </ul>
+
+                            </article>
+
+                        <!-- Final Design --> 
+                            <article id="final_design" class="panel">
+                                <header>
+                                    <h2>Final Design</h2>
+                                </header>
+                                <h3><u>Final Refinement of Our Design</u></h3>
+                                <h3>Hardware Additions</h3>
+                                    In order to mount our sensor inside a mailbox, we 3D printed a stand. We had to make sure that the stand would fit unobtrusively in the mailbox and properly support our sensor. We printed multiple iterations and experimented with positioning the sensor at different angles. Our final iteration involved printing a slot at a 45&deg; angle which accommodated the bend in the sensor.  It also allowed the sensor to remain at the correct height in order for mail to activate it. Lastly, we secured the sensor and the mount inside of our mailbox at a reasonable depth that allowed mail to be placed inside and keep it flexed.
+                                <h3>Software Additions</h3>
+                                <p>
+                                    Since our last design review, we have eliminated the problem of sending double messages. This was caused by two methods being declared as attributes, without their parentheses. We have also been working on getting our code to read and write .csv files. These files are going to keep track of the state and owner of each mailboxes. Currently, the .csv file that we are writing has two columns, one with the owner’s name and the second with a Boolean that represents whether or not that mailbox has mail. There will be empty rows in our .csv for those students who chose not to participate in our program. By keeping the row number of the .csv consistent with the mailbox number, we are increasing the processing speed of our code. Instead of parsing through many names or numbers, the location of each mailbox is specified by its row number.
+                                </p>
+                                <h3><u>Analysis of Outcome</u></h3>
+                                <h3>Minimum Deliverable</h3>
+                                    Our minimum deliverable was defined as being able to identify the presence (or non-presence) of mail in an Oliner’s mailbox and then send an email to notify the owner of the mailbox. We achieved our minimum deliverable within the first week of this six week long project. As it turns out, sending email with Python is a lot simpler than we thought.<br>
+                                    What really slowed us down was not having the proper sensor. Due to lack of monitoring of the ordering system put in place at Olin and transition between responsible parties, we were not able to get the sensor that we had hoped to get, a pressure sensitive force sensor. At the beginning of our project, we worked with a light sensor and covered it up to sense the presence of mail. After bringing our sensor problems to our professor, he provided us with three types of sensors to choose from. We thought through design considerations, tested the sensors, and chose to use the force sensitive bendable resistor (flex sensor) that we used in our final project.
+
+                                <h3>Maximum Deliverable</h3>
+                                <p>
+                                    Our maximum deliverable involved creating a web app for users to log into. This proved to have a high level of difficulty, which is why we made it our reach goal. The difficulties occurred due to databasing and the secure saving of passwords.
+                                </p>
+                                <h3>Design Reflection</h3>
+                                <p>
+                                    Our best decision was choosing to control our system with the Spark Core. We had initially planned to work with a Raspberry Pi, but this proved to be difficult and expensive, due to the lack of availability of the WiFi shield at Olin. We also had some difficulty with selecting a sensor. Looking back, using a beam breaker or a pressure sensor might have been a better option, however we ran into issues when we attempted to order a pressure sensor, which forced us to have to improvise. Our thanks go to Amon for letting us borrow some sensors to test, including the flex sensor that we ended up using for this project.
+                                </p>
+                                <h3>Division of Labor Reflection</h3>
+                                <p>
+                                    We worked on this project as a group; relatively little code was written without immediate input from other team members. Within the group, each team member was more involved in his or her area of interest. Meg spent much of her time with the Python code that checked mailbox statuses and sent emails. Anders wrote code which created and updated an internet-based data table of every mailbox’s status; he also 3D printed the sensor mount. Ryan was the lead on the Spark Core, the Python class structure, and the creation of a Flask web app. Within meetings we programmed in pairs, switching off between who was typing and who was asking questions or giving advice. Our code is hosted on <a href="https://github.com/megsaysrawr/GotMail">GitHub</a> for version control.
+                                </p>
+                                <h3>Bug Report</h3>
+                                <p>
+                                    Our biggest bug was sending multiple emails and spamming users. We thought that we had fixed this after our first design review, but during our second design review, it reared its ugly head yet again. We found it during our design review code presentation. It ended up being a simple problem caused by methods being declared as attributes and lacking the parentheses that define them as methods. It took some searching and reviewing of the code to find the bug, but once we found the origin, it was resolved in a matter of seconds. We could have found it before our design review if we had tested our code before running it in front of our professor and classmates.
+                                </p>
+                                
+                                
+                                
+                            </article>
+
+                        <!-- Check Mail -->
+                            <article id="checkmail" class="panel">
+                                <header>
+                                    <h2>Check your mail</h2>
+                                </header>
+                                <!-- <form action="#" method="post">
+                                    <div>
+                                        <div class="row">
+                                            <div class="6u">
+                                                <input type="text" name="name" placeholder="Name" />
+                                            </div>
+                                            <div class="6u">
+                                                <input type="text" name="email" placeholder="Email" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="12u">
+                                                <input type="text" name="subject" placeholder="Subject" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="12u">
+                                                <textarea name="message" placeholder="Message" rows="8"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="12u">
+                                                <input type="submit" value="Send Message" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form> -->
+                                <p>Thanks for your interest! We're hard at work. Please check back later!</p>
+                            </article>
+
+                            <!-- Meet the Team -->
+                            <article id="team" class="panel">
+                                <header>
+                                    <h2>Meet the Team</h2>
+                                </header>
+                                <h3>Ryan Eggert</h3>
+                                <img src="images/ryan.jpg" alt="ryan" width="20%" height="20%" align="left"/>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ryan is currently a junior at Olin College of Engineering, majoring in Electrical<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and Computer Engineering.<p>
+                                <div style="clear:both"/>
+                                <br>
+                                <h3>Anders Johnson</h3>
+                                <img src="images/anders.jpg" alt="anders" width="20%" height="20%" align="left"/>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anders is currently a sophomore at Olin College of Engineering, majoring in<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mechanical Engineering. He really enjoys mechanical design and invests a lot<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of time working with the Olin College Baja SAE racing team. A rabid soccer<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player and fan, you can find him outside on the great lawn kicking a soccer<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ball around in his free time. </p>
+                                <div style="clear:both"/>
+                                <br>
+                                <h3>Meg McCauley</h3>
+                                <img src="images/meg.jpg" alt="meg" width="20%" height="20%" align="left"/>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meg is currently a sophomore at Olin College of Engineering, majoring in<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Electrical and Computer Engineering. On the weekends you can find her<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;winning hackathons. (She's currently 3-0) She also enjoys curling up with a<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blanket, a good book, and a cup of peppermint hot chocolate. She hopes to<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;see this project grow into a scalable venture open to the Olin community.<p>
+                            </article>
+
+                    </div>
+        
+                <!-- Footer -->
+                    <div id="footer">
+                        <ul class="copyright">
+                            <li>&copy; 2014 Ryan Eggert.</li><li>Design: Modified from <a href="http://html5up.net">Astral</a></li>
+                        </ul>
+                    </div>
+        
+            </div>
+
+    </body>
+</html>
