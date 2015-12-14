@@ -52,12 +52,12 @@
 										<section>
 											<header>
 												<h2>Schematics</h2>
-												<h1>Figures and diagrams detailing our encryptor and decryptor structure</h1>
+												<h3>Figures and diagrams detailing our encryptor and decryptor structure</h3>
 											</header>
 											<p>
 												We hope that these figures help you see how we created our code.
 											</p>
-											<h3>Encryption</h3>
+											<h2>Encryption</h2>
 											<img src="images/CipherEncryption.png" width=1100px height=250px alt="Schematic of High Level Encryption Module"/>
 											<p>
 												The schematic of the high level encryption module shows that our AES encryptor is composed of Key Expansion module, Add Round Key module, Round module, and Final Round Module which are further explained below. Since there are nine intermediate rounds, we use the Round module nine times in sequence. Each Round takes the corresponding key from Key Expansion module in ascending order.
@@ -75,7 +75,7 @@
 												The Final Round goes through three operations: substitute byte, shift rows, and add round key. 
 											</p>
 
-											<h3>Decryption</h3>
+											<h2>Decryption</h2>
 											<img src="images/CipherDecryption.png" width=1100px height=225px alt="Schematic of High Level Decryption Module"/>
 											<p>
 												The schematic of the high level decryption module shows that our AES decryptor is composed of Key Expansion module, First Round module, Reverse Round module, and Add Round Key module. Since there are nine intermediate rounds, we use the Reverse Round module nine times in sequence. Each Reverse Round takes the corresponding key from Key Expansion module in descending order.
