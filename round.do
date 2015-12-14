@@ -8,6 +8,7 @@ add wave -position insertpoint  \
 sim:/testround/roundin \
 sim:/testround/key \
 sim:/testround/rst \
+sim:/testround/roundout \
 sim:/testround/begintest \
 sim:/testround/endtest \
 sim:/testround/dutpassed

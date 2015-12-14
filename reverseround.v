@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------
 // Reverse Round
 //------------------------------------------------------------------------
-`include "substitutekey.v" 
-`include "diffusion.v" 
+`include "reversesubstitutekey.v" 
+`include "reversediffusion.v" 
 `include "addroundkey.v"
 
 module reverseround

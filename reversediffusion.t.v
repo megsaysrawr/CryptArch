@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------
-// Final Round test bench
+// Reverse Diffusion test bench
 //------------------------------------------------------------------------
 `include "reversediffusion.v"
 module reverse_diffusion_test_bench_harness();
@@ -59,17 +59,41 @@ module reverse_diffusion_test_bench(
 		//test case 0--check to see if what is inputted gets stored properly
 		$display("---------------------------------");
 		$display("Testing case 0...");
-		diffusion_in[3][3:0] = {8'd1, 8'd2, 8'd3, 8'd4};
-		diffusion_in[2][3:0] = {8'd1, 8'd2, 8'd3, 8'd4};
-		diffusion_in[1][3:0] = {8'd1, 8'd2, 8'd3, 8'd4};
-		diffusion_in[0][3:0] = {8'd1, 8'd2, 8'd3, 8'd4};
+		diffusion_in[3][3:0] = {8'h7b, 8'h05, 8'h42, 8'h4a};
+		diffusion_in[2][3:0] = {8'h1e, 8'hd0, 8'h20, 8'h40};
+		diffusion_in[1][3:0] = {8'h94, 8'h83, 8'h18, 8'h52};
+		diffusion_in[0][3:0] = {8'h94, 8'hc4, 8'h43, 8'hfb};
 		#20
 
+		if (diffusion_out[3][3] != 40) begin
+		dutpassed = 0;
 		$display("diffusion_in");
 		$display("%d %d %d %d", diffusion_in[3][3], diffusion_in[3][2], diffusion_in[3][1], diffusion_in[3][0]);
 		$display("%d %d %d %d", diffusion_in[2][3], diffusion_in[2][2], diffusion_in[2][1], diffusion_in[2][0]);
 		$display("%d %d %d %d", diffusion_in[1][3], diffusion_in[1][2], diffusion_in[1][1], diffusion_in[1][0]);
 		$display("%d %d %d %d", diffusion_in[0][3], diffusion_in[0][2], diffusion_in[0][1], diffusion_in[0][0]);
+		$display("Reverse diffusion [3][3] broken");
+		end
+
+		if (diffusion_out[2][1] != 48) begin
+		dutpassed = 0;
+		$display("diffusion_in");
+		$display("%d %d %d %d", diffusion_in[3][3], diffusion_in[3][2], diffusion_in[3][1], diffusion_in[3][0]);
+		$display("%d %d %d %d", diffusion_in[2][3], diffusion_in[2][2], diffusion_in[2][1], diffusion_in[2][0]);
+		$display("%d %d %d %d", diffusion_in[1][3], diffusion_in[1][2], diffusion_in[1][1], diffusion_in[1][0]);
+		$display("%d %d %d %d", diffusion_in[0][3], diffusion_in[0][2], diffusion_in[0][1], diffusion_in[0][0]);
+		$display("Reverse diffusion [2][1] broken");
+		end
+
+		if (diffusion_out[0][3] != 42f) begin
+		dutpassed = 0;
+		$display("diffusion_in");
+		$display("%d %d %d %d", diffusion_in[3][3], diffusion_in[3][2], diffusion_in[3][1], diffusion_in[3][0]);
+		$display("%d %d %d %d", diffusion_in[2][3], diffusion_in[2][2], diffusion_in[2][1], diffusion_in[2][0]);
+		$display("%d %d %d %d", diffusion_in[1][3], diffusion_in[1][2], diffusion_in[1][1], diffusion_in[1][0]);
+		$display("%d %d %d %d", diffusion_in[0][3], diffusion_in[0][2], diffusion_in[0][1], diffusion_in[0][0]);
+		$display("Reverse diffusion [0][3] broken");
+		end
 
 		//NOTE: yes, this works, but we need to code the if statement check to set dutPassed
 

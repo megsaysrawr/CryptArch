@@ -59,10 +59,20 @@ module decryptortestbench (
 		if (plaintext !== 128'h636f6d7061726368636f6d7061726368)begin
 			dutpassed = 0;
 			//$display ("Round0Text - %h:, round4output);
-			$display("Cipher Text = %h", ciphertext);
-			$display("3-Encrptor Broken");
+			$display("Plain Text = %h", ciphertext);
+			$display("Decryptor Broken");
 		end
-		
+		#10
+
+		ciphertext=128'hff0b844a0853bf7c6934ab4364148fb9;
+		key=128'h0f1571c947d9e8590cb7add6af7f6798; 
+		rst=1; #100
+		if (plaintext !== 128'h0123456789abcdeffedcba9876543210)begin
+			dutpassed = 0;
+			//$display ("Round0Text - %h:, round4output);
+			$display("Plain Text = %h", ciphertext);
+			$display("Decryptor Broken");
+		end
 		
 		//if (ciphertext==128'd1928 && done != 1'b1) begin
 		//	dutpassed = 0;

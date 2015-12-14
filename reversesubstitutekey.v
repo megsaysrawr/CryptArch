@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------
 `include "sbox_LUT_decrypt.v"
 
-module substitutekey
+module reversesubstitutekey
 (
 input [7:0] subkeyin [3:0][3:0],
 output reg [7:0] subkeyout [3:0][3:0]
