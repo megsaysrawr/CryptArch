@@ -25,8 +25,14 @@
 		line-height: 1;
 	}
 
-	ol, ul {
-		list-style: none;
+	ul {
+		list-style: square;
+		padding-left: 5em;
+	}
+
+	ol {
+		list-style-type: "1";
+		padding-left: 5em;
 	}
 
 	blockquote, q {
@@ -1070,7 +1076,7 @@
 	body {
 		background: #D4D9DD url("images/bg03.jpg");
 		color: #474f51;
-		font-size: 13.5pt;
+		font-size: 15pt;
 		font-family: 'Yanone Kaffeesatz';
 		line-height: 1.85em;
 		font-weight: 300;
@@ -1078,7 +1084,7 @@
 
 	input, textarea, select {
 		color: #474f51;
-		font-size: 13.5pt;
+		font-size: 15pt;
 		font-family: 'Yanone Kaffeesatz';
 		line-height: 1.85em;
 		font-weight: 300;
@@ -1192,12 +1198,12 @@
 		}
 
 	.button-big {
-		background-image: -moz-linear-gradient(top, #ed391b, #ce1a00);
-		background-image: -webkit-linear-gradient(top, #ed391b, #ce1a00);
-		background-image: -ms-linear-gradient(top, #ed391b, #ce1a00);
-		background-image: linear-gradient(top, #ed391b, #ce1a00);
+		background-image: -moz-linear-gradient(top, #5BA7A7, #5F9B91);
+		background-image: -webkit-linear-gradient(top, #5BA7A7, #5F9B91);
+		background-image: -ms-linear-gradient(top, #5BA7A7, #5F9B91);
+		background-image: linear-gradient(top, #5BA7A7, #5F9B91);
 		display: inline-block;
-		background-color: #ed391b;
+		background-color: #5BA7A7;
 		color: #fff;
 		text-decoration: none;
 		font-size: 1.75em;
@@ -1205,26 +1211,26 @@
 		padding: 15px 45px 15px 45px;
 		outline: 0;
 		border-radius: 10px;
-		box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
+		box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(95,155,145, 0.8), inset 0px 0px 0px 2px rgba(132,140,235, 0.8), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
 		text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
 	}
 
 		.button-big:hover {
-			background-image: -moz-linear-gradient(top, #fd492b, #de2a10);
-			background-image: -webkit-linear-gradient(top, #fd492b, #de2a10);
-			background-image: -ms-linear-gradient(top, #fd492b, #de2a10);
-			background-image: linear-gradient(top, #fd492b, #de2a10);
-			background-color: #fd492b;
-			box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
+			background-image: -moz-linear-gradient(top, #5BA537, #5F9B91);
+			background-image: -webkit-linear-gradient(top, #5BA537, #5F9B91);
+			background-image: -ms-linear-gradient(top, #5BA537, #5F9B91);
+			background-image: linear-gradient(top, #5BA537, #5F9B91);
+			background-color: #5BA537;	
+			box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(95,155,145, 0.8), inset 0px 0px 0px 2px rgba(132,140,235, 0.8), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
 		}
 
 		.button-big:active {
-			background-image: -moz-linear-gradient(top, #ce1a00, #ed391b);
-			background-image: -webkit-linear-gradient(top, #ce1a00, #ed391b);
-			background-image: -ms-linear-gradient(top, #ce1a00, #ed391b);
-			background-image: linear-gradient(top, #ce1a00, #ed391b);
-			background-color: #ce1a00;
-			box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
+			background-image: -moz-linear-gradient(top, #5F9B91, #5BA7A7);
+			background-image: -webkit-linear-gradient(top, #5F9B91, #5BA7A7);
+			background-image: -ms-linear-gradient(top, #5F9B91, #5BA7A7);
+			background-image: linear-gradient(top, #5F9B91, #5BA7A7);
+			background-color: #5F9B91;
+			box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(95,155,145, 0.8), inset 0px 0px 0px 2px rgba(132,140,235, 0.8), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
 		}
 
 /* Content */
@@ -1403,7 +1409,7 @@
 			}
 
 			#content a {
-				color: #ED391B;
+				color: #0D808E;
 			}
 
 			#content header {
@@ -1540,7 +1546,7 @@
 			}
 
 			body, input, textarea, select {
-				font-size: 13pt;
+				font-size: 15pt;
 				line-height: 1.4em;
 			}
 
@@ -1671,7 +1677,7 @@
 			}
 
 			#content a {
-				color: #ED391B;
+				color: #0D808E;
 			}
 
 			#content header {
