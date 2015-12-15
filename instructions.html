@@ -50,18 +50,23 @@
 
 									<!-- Main Content -->
 										<section>
-											<header>
-												<h2>Instructions</h2>
+											
+												<h2>Running Our Code</h2>
+												<h3>How to demo the implementation on our github: Open  user_encryption.py and follow the instructions at the top. </h3>
+											
+												<p></p>
+												 <hr>
+												<br>
+													<h2>Instructions</h2>
 												<h3>A step-by-step guide to AES implementation in Verilog</h3>
-											</header>
-											<p>
+										
+												<p>
 												Get ready to learn because here comes the knowledge! <br>
 
 												To understand how to implement AES in verilog, first you must learn how AES works! <br>
 												Please see our "<a href="what-is-aes.html">What is AES</a>" page for more info about this.
 											 
-											 <hr>
-											<br>
+											 	<hr>
 												Alrighty! So now that you know how AES works, here is how to implement it in Verilog. <br>
 												We created an overall encryption module, "encryptor.v" and an overall decryption module, "decryptor.v". <br>
 												In order to run encryption, just run encryptor.do. For decryption, decryptor.do.
@@ -90,144 +95,15 @@
 												<div class="row">
 												<div class="3u"></div>
 													<div class="3u">
-												    <table class="matrix">
-												        <tr>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-															<td>1</td>
-												            <td>1</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>0</td>
-												        </tr>
-												        <tr>
-												            <td>0</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>0</td>
-												            <td>0</td>
-												        </tr>
-												        <tr>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>0</td>
-												        </tr>
-												        <tr>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												        </tr>
-												        <tr>
-												            <td>1</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												        </tr>
-												        <tr>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												        </tr>
-												        <tr>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>1</td>
-												            <td>1</td>
-												        </tr>
-												        <tr>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>1</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>0</td>
-												            <td>1</td>
-												        </tr>
-												    </table>
+
+												<img src="images/mathop.png" width=500px class="center" />
+												    
 												</div>
 												<div class="3u">
-												    <table class="matrix">
-												        <tr>
-												            <td>a7</td>
-												        </tr>
-												        <tr>
-												            <td>a6</td>
-												        </tr>
-												        <tr>
-												            <td>a5</td>
-												        </tr>
-												        <tr>
-												            <td>a4</td>
-												        </tr>
-												        <tr>
-												            <td>a3</td>
-												        </tr>
-												        <tr>
-												            <td>a2</td>
-												        </tr>
-												        <tr>
-												            <td>a1</td>
-												        </tr>
-												        <tr>
-												            <td>a0</td>
-												        </tr>
-												    </table>
+												    
 												</div>
 												<div class="3u">
-												    <table class="matrix">
-												        <tr>
-												            <td>0</td>
-												        </tr>
-												        <tr>
-												            <td>1</td>
-												        </tr>
-												        <tr>
-												            <td>1</td>
-												        </tr>
-												        <tr>
-												            <td>0</td>
-												        </tr>
-												        <tr>
-												            <td>0</td>
-												        </tr>
-												        <tr>
-												            <td>0</td>
-												        </tr>
-												        <tr>
-												            <td>1</td>
-												        </tr>
-												        <tr>
-												            <td>1</td>
-												        </tr>
-												    </table>
+												   
 												</div>
 												<p>Option 2: Find a lookup table of s-box values online and implement that in behavioural verilog, such that to perform the s box operation you just grab the right value from the lookup table.
 												<br>
