@@ -15,16 +15,16 @@ output reg done
 //It will also require a 128 bit key. The module is defined above. 
 //The decryptor will begin on the first positive clock edge when rst is high. 
 //When done goes high, the plaintext output is ready to be read. 
-reg key1;
-reg key2;
-reg key3;
-reg key4;
-reg key5;
-reg key6;
-reg key7;
-reg key8;
-reg key9;
-reg key10;
+reg [127:0] key1;
+reg [127:0] key2;
+reg [127:0] key3;
+reg [127:0] key4;
+reg [127:0] key5;
+reg [127:0] key6;
+reg [127:0] key7;
+reg [127:0] key8;
+reg [127:0] key9;
+reg [127:0] key10;
 reg [7:0] mkey1 [3:0][3:0];
 reg [7:0] mkey2 [3:0][3:0];
 reg [7:0] mkey3 [3:0][3:0];
@@ -75,16 +75,16 @@ matrixify makekey8(key8, mkey8);
 matrixify makekey9(key9, mkey9);
 matrixify makekey10(key10, mkey10);
 
-firstround initialround(matrixifiedtext, key10, rst, initialtext);
-reverseround round0(initialtext, key9, rst, round0output);
-reverseround round1(round0output, key8, rst, round1output);
-reverseround round2(round1output, key7, rst, round2output);
-reverseround round3(round2output, key6, rst, round3output);
-reverseround round4(round3output, key5, rst, round4output);
-reverseround round5(round4output, key4, rst, round5output);
-reverseround round6(round5output, key3, rst, round6output);
-reverseround round7(round6output, key2, rst, round7output);
-reverseround round8(round7output, key1, rst, round8output);
+firstround initialround(matrixifiedtext, mkey10, rst, initialtext);
+reverseround round0(initialtext, mkey9, rst, round0output);
+reverseround round1(round0output, mkey8, rst, round1output);
+reverseround round2(round1output, mkey7, rst, round2output);
+reverseround round3(round2output, mkey6, rst, round3output);
+reverseround round4(round3output, mkey5, rst, round4output);
+reverseround round5(round4output, mkey4, rst, round5output);
+reverseround round6(round5output, mkey3, rst, round6output);
+reverseround round7(round6output, mkey2, rst, round7output);
+reverseround round8(round7output, mkey1, rst, round8output);
 addroundkey lastround(round8output, matrixifiedkey, round9output);
 dematrixify finaloutput(round9output, plaintext);
 

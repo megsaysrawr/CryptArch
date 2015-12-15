@@ -74,11 +74,11 @@ module reverse_mix_cols_test_bench(
 		$display("answer should be 926bd4b6");
 
 		$display("the answer is %h",final_col);
-		dutpassed = 0;
-		end
+		
+		
 
 	
-	#5
+	
 	endtest = 1;
 	end
 
