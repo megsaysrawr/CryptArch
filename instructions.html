@@ -243,18 +243,24 @@
 												Each round in encryption except the final one consists of 4 operations. The first is substitute bytes, the same sbox operation as described above.
 												</p>
 												<h3>Decryption</h3>
+												<br>
+												<p>
 												Now let's talk about how we implemented decryption.  
-												<br>
+												</p>
 												<img src="images/CipherDecryption.png" class="center" width=1000px>
-												<br>
+												<p>
 												The decryption module takes two inputs: a 128-bit encrypted message and a 128-bit key.
 												It outputs the plaintext, and a "done" flag that is set to high when decryption is completed.
-
+											    </p>
+												<p>
 												Within the decryption module, we instantiated instances of all the other modules we created for decryption. We first call the Key Expand module to get all ten keys that we needed for each reverse round which is shown below.<br>
+												</p>
 												<img src="images/decryption-round.png" class="center" width=1000px>
-												We then initiate the first round where it's the same as reverse round but without reverse mix columns. The schematic of the first round is shown below.
+												<p>
+												We then initiate the first round where it's the same as reverse round but without reverse mix columns. The schematic of the first round is shown below.</p>
 												<img src="images/firstround.png" class="center" width=1000px>
-												We then call the reverse round module nine times to further decrypt the messege. The last step in decryption is to xor the decrypted text out of the ninth reverse round with the round key.
+												<p>
+												We then call the reverse round module nine times to further decrypt the messege. The last step in decryption is to xor the decrypted text out of the ninth reverse round with the round key. </p>
 											</p>
 										</section>
 								</div>
