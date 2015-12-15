@@ -4,3 +4,11 @@
 *.qpg
 *.opt
 *.wlf
+*
+!.gitignore
+!*.v
+!*.do
+!*.md
+!*/
+!*.asm
+!*.png
