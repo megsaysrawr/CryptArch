@@ -98,6 +98,96 @@
 													Repeat these steps using the Round 1 key as an input to get the subsequent keys for rounds 2-10!
 
 													<hr>
+													<h3>Initial Round</h3>
+													Once the keys are all set, we can get started with the other encryption steps. </br>
+													First is the initial round.
+													The initial round is actually quite simple! All you need to do is xor each bit of the message with each bit of the initial key.
+													<img src="images/r0xor.jpg" width=250px height=100px caption="key ascii" alt="Picture of r0 xor"/>
+													<img src="images/arrow.gif" width=110px height=100px caption="key ascii" alt="Picture of arrow"/>
+													<img src="images/gridround0out.jpg" width=100px height=100px caption="key ascii" alt="Picture of round 0 output"/> = Round 0 Output 
+													<hr>
+
+													<h3>Other Rounds</h3>
+
+													Rounds 1-10 of the cipher are a bit more complicated.
+
+													Each round contains 4 major steps.
+
+													<ul>
+														<li>Substitute bytes</li>
+														<li>Shift Rows</li>
+														<li>Mix Coluns</li>
+														<li>Add Round Key</li>
+													</ul>
+													<h4>Substitute Bytes</h4>
+
+													This is the same s-box byte-mapping as we used earlier in the key-expand! It applies two math functions to the matrix. First it takes the inverse, and second it multiplies by a constant matrix using Gallois Field matrix multipliation , and then adds a 8bit constant column.  This can be simplified to a look up table to perfom the s-box transformation.  The s-box result for our example is shown below. </br>
+
+													<img src="images/gridround0out.jpg" width=100px height=100px caption="key ascii" alt="Picture of round 0 out"/>
+													<img src="images/arrow.gif" width=110px height=100px caption="key ascii" alt="Picture of arrow"/>
+													<img src="images/r1sboxed.png" width=100px height=100px caption="key ascii" alt="Picture of round 1 sbox out"/>
+
+													</br> 
+
+													<h4> Shift Rows </h4>
+
+													In this step, you shift the rows to the left and wrap them around to the other side. How many bytes of the row shifts increases as the rows descend from top to bottom. Our example shows how this occurs. </br>
+
+													<img src="images/r1sboxed.png" width=100px height=100px caption="key ascii" alt="Picture of round 1 sbox out"/>
+													<img src="images/arrow.gif" width=110px height=100px caption="key ascii" alt="Picture of arrow"/>
+
+													<img src="images/r1shiftedrows.png" width=100px height=100px caption="key ascii" alt="Picture of round 1 shifted rows"/>
+
+													</br>
+													<h4>Mix Columns </h4>
+
+													Similarly to the S-Box transfomation, Mix Columns treats each column as a poolynomial, and is essentially a matrix multiplication.	This re-orders the bits of each columnn in a very specific way. </br>												
+													<img src="images/r1shiftedrows.png" width=100px height=100px caption="key ascii" alt="Picture of round 1 shifted rows"/>
+													<img src="images/arrow.gif" width=110px height=100px caption="key ascii" alt="Picture of arrow"/>
+													<img src="images/r1mixedcols.png" width=100px height=100px caption="key ascii" alt="Picture of round 1 mixed columns"/>
+												</br>
+											</br>
+											<h4>Add Round Key</h4>
+
+											This step is just like the operation we did in the initial round! Remember the Round1 key we found in key expansion earlier?
+											We XOR that key with the result of mix columns to get the output of Round 1! </br>
+
+											<img src="images/r1xor.png" width=250px height=100px caption="key ascii" alt="Picture of r1 xor"/>
+											<img src="images/arrow.gif" width=110px height=100px caption="key ascii" alt="Picture of arrow"/>
+											<img src="images/r1out.png" width=100px height=100px caption="key ascii" alt="Picture of round 1 output"/> = Round 1 Out 
+											<hr>
+										</br>
+											<h2>Repeat!</h2>
+											<h3>Now repeat all these steps for rounds 2-9!
+
+											Round 10 is nearly identical except you skip the mix-columns step.
+
+
+											After all this your final cipher should be the string shown below. </h3></br>
+
+
+											<img src="images/cipherout.jpg" width=200px height=200px caption="key ascii" alt="Picture of cipher output"/>
+											<h2>D	#	B	Æ	R	.	Q	Ö	W	a	J	£	N	.	(	v </h2>
+										</br>
+										<hr>
+									</br>
+
+										<h2>Decryption!</h2>
+
+										<p>Now you know how AES Encryption works!!
+
+										To decrypt your message from the resulting cipher text, use the same key-expand, and simply perform each step in reverse!
+
+										Good luck, and happy encrypting! :) </p>
+
+
+
+
+
+
+
+
+
 
 
 											</p>
