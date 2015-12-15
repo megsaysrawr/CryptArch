@@ -55,10 +55,54 @@
 												<h3>An overview of Advanced Encryption Standard</h3>
 											</header>
 											<p>
-												Please, tell me more about this magic that you call cryptography! </br>
-												AES stands for Advanced Encryption Standard.  This cipher takes in a 128bit message and a 128bit key.  
-											</p>
 
+												Please, tell me more about this magic that you call cryptography! </br>
+
+												AES stands for Advanced Encryption Standard.  Each block of this cipher takes in a 128bit message and a 128bit key.  This cipher is used by the US Government to protect classified enformation, and is used to encrypt sensitive data all around the world! The algorithm was developed by two cryptographers: Joan Daemen and Vincent Rijmen from Belgium, as a replacement for DES, Data Encryption Standard, which was the widely used standard for encryption before AES was developed. 
+												So let's go over how AES works!!
+
+												We will use an example of our secret message and secret key shown below.  Both converted to ASCII hexcode. </br>
+
+													<img src="images/gridwords.jpg" width=100px height=100px alt="Picture of secret message"/>
+													<img src="images/arrow.gif" width=110px height=100px caption="key ascii" alt="Picture of arrow"/> 
+													<img src="images/gridascii.jpg" width=100px height=100px alt="Picture of secret message"/></br>
+													<img src="images/gridkey.jpg" width=100px height=100px alt="Picture of secret key"/> 
+													<img src="images/arrow.gif" width=110px height=100px caption="key ascii" alt="Picture of arrow"/>
+													<img src="images/gridkey_ascii.jpg" width=100px height=100px caption="key ascii" alt="Picture of secret key"/></br>
+
+													<hr>
+
+												<h3>Key Expansion</h3>
+
+												First, the key needs to be expanded to create the keys to be used in later rounds of the encryption.  This is done in the process of key expand.  At the highest level, key expand takes in one key, and outputs 10 new keys.
+
+												The first step of the key expand is to shift the bytes of the last column. The top byte goes to the bottom, and the rest shift up. 
+													
+													<img src="images/gridkey_ascii.jpg" width=100px height=100px caption="key ascii" alt="Picture of secret key"/>
+													<img src="images/arrow.gif" width=110px height=100px caption="key ascii" alt="Picture of arrow"/>
+													<img src="images/keyexpandshift.png" width=100px height=100px caption="key ascii" alt="Picture of shifted key"/></br>
+												Next, this key is passed through the s-box, which we will cover in more detail later!
+												Basically, the s-box maps each byte of the key to a new byte. This can actually be done with some matrix math, but conceptually can be simplified to a big look up table. </br>
+												Here is the value of our key after passing it through the s-box: </br>
+
+													<img src="images/asciikeysbox.jpg" width=100px height=100px caption="key ascii" alt="Picture of sboxed key"/> </br>
+
+												The next step is to XOR the last column of this matrix with the Round Constant. This is different constant for each of the 10 rounds, but is [01 00 00 00]^T for round1. 
+
+													<img src="images/rconxor.png" width=150px height=100px caption="key ascii" alt="Picture of rcon xor"/> </br>
+													Then XOR this resulting column, with each column of the output key from the sbox, to get our new key for Round 1. </br>
+
+													<img src="images/arrow.gif" width=110px height=100px caption="key ascii" alt="Picture of arrow"/>
+													<img src="images/r1key.png" width=100px height=100px caption="key ascii" alt="Picture of secret key"/>  = Round 1 Key</br>
+
+													Repeat these steps using the Round 1 key as an input to get the subsequent keys for rounds 2-10!
+
+													<hr>
+
+
+											</p>
+											<p> 
+											</p>
 										</section>
 
 								</div>
