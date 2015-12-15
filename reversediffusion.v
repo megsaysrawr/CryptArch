@@ -15,16 +15,17 @@ module reverseshift_rows(
 );
 	//push everything to the left and then wrap it around
 
-	assign shift_rows_out [0][3:0] = shift_rows_in [0][3:0];		//1: all the same
+	assign shift_rows_out [0][3:1] = shift_rows_in [0][2:0];		//1: all the same
+	assign shift_rows_out [0][0] = shift_rows_in [0][3];	
 
-	assign shift_rows_out [1][2:0] = shift_rows_in [1][3:1];		//2: keeps last three
-	assign shift_rows_out [1][3] = shift_rows_in [1][0];			//2:	and shifts first one to last one
+	assign shift_rows_out [2][2:0] = shift_rows_in [2][3:1];		//2: keeps last three
+	assign shift_rows_out [2][3] = shift_rows_in [2][0];			//2:	and shifts first one to last one
 
-	assign shift_rows_out [2][1:0] = shift_rows_in [2][3:2];		//3: keeps last two
-	assign shift_rows_out [2][3:2] = shift_rows_in [2][1:0];		//3:	and shifts first two to last two
+	assign shift_rows_out [1][1:0] = shift_rows_in [1][3:2];		//3: keeps last two
+	assign shift_rows_out [1][3:2] = shift_rows_in [1][1:0];		//3:	and shifts first two to last two
 
-	assign shift_rows_out [3][0] = shift_rows_in [3][3];			//4: keeps last one
-	assign shift_rows_out [3][3:1] = shift_rows_in [3][2:0];		//4:	and shifts first three to last three
+	assign shift_rows_out [3][3:0] = shift_rows_in [3][3:0];			//4: keeps last one
+	//assign shift_rows_out [3][3:2] = shift_rows_in [3][1:0];		//4:	and shifts first three to last three
 
 
 endmodule

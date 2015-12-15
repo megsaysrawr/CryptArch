@@ -53,17 +53,17 @@ module reverseroundtestbench (
 		dutpassed = 1;
 		#10
 
-		//test case 0--check to see if what is inputted gets stored properly
+		//test case 0
 		$display("---------------------------------");
 		$display("Testing case 0...");
-		roundin[3][3:0] = {8'ha0, 8'h78, 8'h01, 8'h4a};
-		roundin[2][3:0] = {8'h4f, 8'h93, 8'hc7, 8'hb0};
-		roundin[1][3:0] = {8'h9e, 8'h6e, 8'h76, 8'h80};
-		roundin[0][3:0] = {8'h6b, 8'hca, 8'hfb, 8'h17};
-		key[3][3:0] = {8'he1, 8'hc1, 8'he1, 8'hc1};
-		key[2][3:0] = {8'h21, 8'h10, 8'h52, 8'h19};
-		key[1][3:0] = {8'h86, 8'h64, 8'hfd, 8'hb8};
-		key[0][3:0] = {8'hf2, 8'hca, 8'h9e, 8'hc7};
+		roundin[3][3:0] = {8'h72, 8'hba, 8'hcb, 8'h04};
+		roundin[2][3:0] = {8'h1e, 8'h06, 8'hd4, 8'hfa};
+		roundin[1][3:0] = {8'hb2, 8'h20, 8'hbc, 8'h65};
+		roundin[0][3:0] = {8'h00, 8'h6d, 8'he7, 8'h4e};
+		key[3][3:0] = {8'h58, 8'hfd, 8'h0f, 8'h4c};
+		key[2][3:0] = {8'h9d, 8'hee, 8'hcc, 8'h40};
+		key[1][3:0] = {8'h36, 8'h38, 8'h9b, 8'h46};
+		key[0][3:0] = {8'heb, 8'h7d, 8'hed, 8'hbd};
 		#10
 
 		$display("roundout");
@@ -72,32 +72,32 @@ module reverseroundtestbench (
 		$display("%h %h %h %h", roundout[1][3], roundout[1][2], roundout[1][1], roundout[1][0]);
 		$display("%h %h %h %h", roundout[0][3], roundout[0][2], roundout[0][1], roundout[0][0]);		
 		
-		if (roundout[3][3] != 8'h12) begin
+		if (roundout[3][3] != 8'hf8) begin
 			dutpassed = 0;
 			$display("Round[3][3] Broken");
 		end
 		
-		if (roundout[3][0] != 8'h77) begin
+		if (roundout[3][0] != 8'h4c) begin
 			dutpassed = 0;
 			$display("Round[3][0] Broken");
 		end
 
-		if (roundout[2][2] != 8'h7a) begin
+		if (roundout[2][2] != 8'h37) begin
 			dutpassed = 0;
 			$display("Round[2][2] Broken");
 		end
 
-		if (roundout[2][1] != 8'h62) begin
+		if (roundout[2][1] != 8'h24) begin
 			dutpassed = 0;
 			$display("Round[2][1] Broken");
 		end
 
-		if (roundout[1][1] != 8'h0d) begin
+		if (roundout[1][1] != 8'hc1) begin
 			dutpassed = 0;
 			$display("Round[1][1] Broken");
 		end
 
-		if (roundout[0][0] != 8'h58) begin
+		if (roundout[0][0] != 8'hbc) begin
 			dutpassed = 0;
 			$display("Round[0][0] Broken");
 		end
@@ -105,5 +105,4 @@ module reverseroundtestbench (
 		endtest = 1;
 		// $finish;
 	end
-
 endmodule
