@@ -64,6 +64,7 @@
 											<br>
 												Alrighty! So now that you know how AES works, here is how to implement it in Verilog. <br>
 												We created an overall encryption module, "encryptor.v" and an overall decryption module, "decryptor.v". <br>
+												In order to run encryption, just run encryptor.do. For decryption, decryptor.do.
 												<h3>Encryption</h3>
 												Let's start by talking about how we implemented encryption.  
 												<br>
@@ -240,7 +241,35 @@
 												<p>
 												Next up is the round module, in round.v. This module executes one round for the AES algorithm. 
 												<img src="images/encryption-round.png" width=1000px class="center"/>
-												Each round in encryption except the final one consists of 4 operations. The first is substitute bytes, the same sbox operation as described above.
+												<br>
+												<br>
+												Each round in encryption except the final one consists of 4 operations. The first is substitute bytes, the same sbox operation as described above. The next round is shift columns. This reassigns bytes to the correct spots in the updated matrix. The next round is mix columns. Mix columns in mix_cols.v utilizes finite field arithmetic to perform this operation. Finally, add round key xor's the key for that round with the current byte matrix. This matrix is output of this round module. 
+												</p>
+												<h4> Final Round</h4>
+												<p>
+												<br>
+												<img src="images/finalround.png" width=1000px class="center" />
+												<br>
+												The final round is different from the rest of the rounds in that it doesn't contain a mix columns. Otherwise it is the same as the other rounds.
+												</p>
+												<h3>Decryptor</h3>
+												<p> 
+												Our decryptor is very similar to the encryptor. The only difference is that it runs in reverse.
+												</p>
+												<img src="images/CipherDecryption.png" width=1000px class="center"/>
+												<p>
+												The first round of decrypting is unique, similar to the last round of encryption. The module first round will implement this first round.
+												</p>
+												<img src="images/firstround.png" width=1000 class="center"/>
+												<p>
+												First round is all of the encryption round operations in reverse, minus the mix columns step. All other rounds in decryption are also reversed from their counterparts in encrypt. 
+												</p>
+												<img src="images/decryption-round.png" width=1000 class="center"/>
+												<p>
+												All of the individual modules in the decryption rounds are also reversed compared to their encryption counterparts. 
+												<br>
+												<br>
+												Now you know how to implement AES in verilog?
 												</p>
 											</p>
 										</section>
