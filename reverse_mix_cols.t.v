@@ -58,21 +58,24 @@ module reverse_mix_cols_test_bench(
 		$display("Testing case 0...");
 		input_col = 32'h416e1899;
 		#20
+		if (final_col != 32'hc9dad76a) begin
 		$display("answer should be c9dad76a");
 		$display("the answer is %h",final_col);
+		dutpassed = 0;
+		end
 
-		$display("Testing diffusion now...");
-		endtest = 0;
-		dutpassed = 1;
-		#20
 
 		//test case 1--check to see if the column fb,aa,43,f2 gets mixed to b9,83,da,00 like in the comic
 		$display("---------------------------------");
 		$display("Testing case 1...");
 		input_col = 32'he0958b65;
 		#20
+
 		$display("answer should be 926bd4b6");
+
 		$display("the answer is %h",final_col);
+		dutpassed = 0;
+		end
 
 	
 	#5
