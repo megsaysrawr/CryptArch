@@ -4,7 +4,7 @@
 `include "reversediffusion.v"
 module reverse_diffusion_test_bench_harness();
 
-	//wires for the diffusion
+	//wires for the reverse diffusion
 	wire	[7:0] diffusion_in [3:0][3:0];
 	wire	[7:0] diffusion_out [3:0][3:0];
 
@@ -12,7 +12,7 @@ module reverse_diffusion_test_bench_harness();
 	reg begintest;
 	wire dutpassed;
 
-	//instantiate the diffusion module
+	//instantiate the reverse diffusion module
 
 	reversediffusion DUT
 	(	
@@ -56,7 +56,7 @@ module reverse_diffusion_test_bench(
 		dutpassed = 1;
 		#20
 
-		//test case 0--check to see if what is inputted gets stored properly
+		//test case 0
 		$display("---------------------------------");
 		$display("Testing case 0...");
 		diffusion_in[3][3:0] = {8'h41, 8'hb9, 8'he0, 8'h8b};

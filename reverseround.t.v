@@ -103,6 +103,6 @@ module reverseroundtestbench (
 		end
 
 		endtest = 1;
-		// $finish;
+
 	end
 endmodule

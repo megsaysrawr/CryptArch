@@ -1,4 +1,3 @@
-// diffusion.t.v
 module mix_cols_test_bench_harness();
 
 	//wires for the test bench

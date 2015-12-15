@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------
-// Final Round test bench
+// First Round test bench
 //------------------------------------------------------------------------
 module testfirstround();	
 	wire [7:0] roundout [3:0] [3:0];	
@@ -48,12 +48,12 @@ module firstroundtestbench (
 );
 
 	always @(posedge begintest) begin
-		$display("Testing final round now...");
+		$display("Testing first round now...");
 		endtest = 0;
 		dutpassed = 1;
 		#10
 
-		//test case 0--check to see if what is inputted gets stored properly
+		//test case 0
 		$display("---------------------------------");
 		$display("Testing case 0...");
 		roundin[3][3:0] = {8'hcc, 8'h3e, 8'hff, 8'h3b};
@@ -103,7 +103,7 @@ module firstroundtestbench (
 		end
 
 		endtest = 1;
-		// $finish;
+
 	end
 
 endmodule

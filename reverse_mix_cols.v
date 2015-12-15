@@ -13,7 +13,7 @@ output reg [31:0] final_col
 function automatic [7:0] mult_9_lut 
 (input [7:0] multiplier); 
 int result;
-//lots of values here
+
 case (multiplier)
 8'h0: result = 8'h0;
 8'h1: result = 8'h9;

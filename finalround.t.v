@@ -53,7 +53,7 @@ module finalroundtestbench (
 		dutpassed = 1;
 		#10
 
-		//test case 0--check to see if what is inputted gets stored properly
+		//test case 0
 		$display("---------------------------------");
 		$display("Testing case 0...");
 		roundin[3][3:0] = {8'hcc, 8'h3e, 8'hff, 8'h3b};
@@ -103,7 +103,7 @@ module finalroundtestbench (
 		end
 
 		endtest = 1;
-		// $finish;
+
 	end
 
 endmodule

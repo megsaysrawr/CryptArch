@@ -5,7 +5,7 @@ module sbox_LUT_decrypt(
 
 always @(byte_in) begin
 case (byte_in)
-//this seems inefficient but it's what we discussed doing in our meeting
+
 8'h63: sbyte = 8'h00;
 8'h7c: sbyte = 8'h01;
 8'h77: sbyte = 8'h02;

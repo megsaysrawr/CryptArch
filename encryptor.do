@@ -12,6 +12,6 @@ sim:/testencryptor/ciphertext \
 sim:/testencryptor/begintest \
 sim:/testencryptor/endtest \
 sim:/testencryptor/dutpassed
-run 6000
+run -all
 
 wave zoom full

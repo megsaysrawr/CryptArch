@@ -1,4 +1,6 @@
-// diffusion.t.v
+//------------------------------------------------------------------------
+// Diffusion test bench
+//------------------------------------------------------------------------
 module diffusion_test_bench_harness();
 
 	//wires for the diffusion

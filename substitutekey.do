@@ -3,7 +3,6 @@ vlib work
 
 
 vlog -reportprogress 300 -work work substitutekey.v substitutekey.t.v sbox_LUT.v
-
 vsim -voptargs="+acc" testsubstitutekey
 
 add wave -position insertpoint  \

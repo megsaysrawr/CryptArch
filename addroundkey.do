@@ -1,5 +1,5 @@
-# vdel - lib work - all
-# vlib work
+vdel - lib work - all
+vlib work
 
 vlog -reportprogress 300 -work work addroundkey.v addroundkey.t.v
 vsim -voptargs="+acc" testaddroundkey

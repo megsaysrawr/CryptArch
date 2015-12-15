@@ -40,12 +40,12 @@ module dematrixifytestbench (
 );
 
 	always @(posedge begintest) begin
-		$display("Testing matrixify now...");
+		$display("Testing dematrixify now...");
 		endtest = 0;
 		dutpassed = 1;
 		#10
 
-		//test case 0--check to see if what is inputted gets stored properly
+		//test case 0
 		$display("---------------------------------");
 		$display("Testing case 0...");
 		matrix[3][3:0] = {8'h12, 8'h63, 8'h74, 8'h77};
@@ -91,7 +91,7 @@ module dematrixifytestbench (
 		end
 
 		endtest = 1;
-		// $finish;
+
 	end
 
 endmodule

@@ -1,8 +1,8 @@
-/*diffusion.v
+/* reversediffusion.v
 
 Crypt Arch Project
-part 1: shift rows
-part 2: mix columns
+part 1: reverse mix columns
+part 2: reverse shift rows
 All of this code implies that the matrix is constructed [row, column].
 i.e. [3][3:0] will give you all of the top row and [3:0][3] will give you all of the first column
 */
@@ -13,7 +13,7 @@ module reverseshift_rows(
 	input	[7:0] shift_rows_in [3:0][3:0],			//square matrix with 8 bits in each element; width is four, depth is four
 	output	[7:0] shift_rows_out [3:0][3:0]
 );
-	//push everything to the left and then wrap it around
+	//push everything to the right and then wrap it around
 
 	assign shift_rows_out [0][3:1] = shift_rows_in [0][2:0];		//1: all the same
 	assign shift_rows_out [0][0] = shift_rows_in [0][3];	
@@ -25,8 +25,6 @@ module reverseshift_rows(
 	assign shift_rows_out [1][3:2] = shift_rows_in [1][1:0];		//3:	and shifts first two to last two
 
 	assign shift_rows_out [3][3:0] = shift_rows_in [3][3:0];			//4: keeps last one
-	//assign shift_rows_out [3][3:2] = shift_rows_in [3][1:0];		//4:	and shifts first three to last three
-
 
 endmodule
 
@@ -44,13 +42,13 @@ module reversediffusion(
 	wire	[31:0] col_4_in;
 	wire	[31:0] col_4_out;
 
-	//create temporary column wires from shift rows out
+	//create temporary column wires from input
 	assign col_1_in = {diffusion_in[3][3], diffusion_in[2][3], diffusion_in[1][3], diffusion_in[0][3]};
 	assign col_2_in = {diffusion_in[3][2], diffusion_in[2][2], diffusion_in[1][2], diffusion_in[0][2]};
 	assign col_3_in = {diffusion_in[3][1], diffusion_in[2][1], diffusion_in[1][1], diffusion_in[0][1]};
 	assign col_4_in = {diffusion_in[3][0], diffusion_in[2][0], diffusion_in[1][0], diffusion_in[0][0]};
 
-	//make a mix_columns module
+	//make reverse_mix_columns modules
 	reverse_mix_cols col1 (.input_col(col_1_in), .final_col(col_1_out));
 	reverse_mix_cols col2 (.input_col(col_2_in), .final_col(col_2_out));
 	reverse_mix_cols col3 (.input_col(col_3_in), .final_col(col_3_out));

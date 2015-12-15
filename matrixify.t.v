@@ -89,7 +89,7 @@ module matrixifytestbench (
 		end
 
 		endtest = 1;
-		// $finish;
+
 	end
 
 endmodule

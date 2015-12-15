@@ -66,7 +66,6 @@ module substitutekeytestbench (
 			$display("Substitute Key [0][0] Broken");
 		end
 		endtest = 1;
-		// $finish;
 	end
 
 endmodule

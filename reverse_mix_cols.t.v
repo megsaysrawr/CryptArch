@@ -1,4 +1,3 @@
-// diffusion.t.v
 module reverse_mix_cols_test_bench_harness();
 
 	//wires for the test bench
@@ -8,8 +7,6 @@ module reverse_mix_cols_test_bench_harness();
 	//wires for the tester
 	reg begintest;
 	wire dutpassed;
-
-	//instantiate the diffusion module
 
 	reverse_mix_cols DUT
 	(	
@@ -53,7 +50,7 @@ module reverse_mix_cols_test_bench(
 		dutpassed = 1;
 		#20
 
-		//test case 0--check to see if the column f5,af,c9,59 gets mixed to 8b,a9,38,d0 like in the comic
+		//test case 0
 		$display("---------------------------------");
 		$display("Testing case 0...");
 		input_col = 32'h416e1899;
@@ -65,7 +62,7 @@ module reverse_mix_cols_test_bench(
 		end
 
 
-		//test case 1--check to see if the column fb,aa,43,f2 gets mixed to b9,83,da,00 like in the comic
+		//test case 1
 		$display("---------------------------------");
 		$display("Testing case 1...");
 		input_col = 32'he0958b65;
@@ -73,10 +70,8 @@ module reverse_mix_cols_test_bench(
 		if (final_col != 32'h926bd4b6) begin
 		$display("answer should be 926bd4b6");
 		$display("the answer is %h",final_col);
-		
-		
-
-	
+		dutpassed = 0;
+		end
 	
 	endtest = 1;
 	end
