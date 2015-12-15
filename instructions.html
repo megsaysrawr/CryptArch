@@ -64,16 +64,20 @@
 											<br>
 												Alrighty! So now that you know how AES works, here is how to implement it in Verilog. <br>
 												We created an overall encryption module, "encryptor.v" and an overall decryption module, "decryptor.v". <br>
-
+												<h3>Encryption</h3>
 												Let's start by talking about how we implemented encryption.  
+												<br>
+												<img src="images/CipherEncryption.png" class="center" width=1000px>
+												<br>
+
 												The encryption module takes two inputs: a 128bit message and a 128bit key.
 												It outputs the ciphertext, and a "done" flag that is set to high when encryption is completed.
 
 												Within the encryption module, we instantiated instances of all the other modules we created for encryption. <br>
-
+												<h3>Key Expand</h3>
 												The first one that is called is the key expand module: "key_expand.v".  
 
-												The input to this module should be the same 128bit key that was the input to the overal encryptor module. It should output 10 new keys to be used for rounds 1-10 of the encryption. The block diagram below illustrates how key expand should work.  <img class="center" src="images/KeyExpansion.png" width=500px height=175px alt="Schematic of Key Expansion"/> <br>
+												The input to this module should be the same 128bit key that was the input to the overal encryptor module. It should output 10 new keys to be used for rounds 1-10 of the encryption. The block diagram below illustrates how key expand should work.  <img class="center" src="images/KeyExpansion.png" width=1000px alt="Schematic of Key Expansion"/> <br>
 												For many of the operations you will perform on your key, it makes sense to have it in a matrix format.
 												Use behavioral verilog assign statements to break your 128bit key into a matrix of 16 bytes, made up of 4 byte columns.
 												To see how we did this, check out "matrixify.v".
@@ -224,10 +228,22 @@
 												        </tr>
 												    </table>
 												</div>
-											
+												<p>Option 2: Find a lookup table of s-box values online and implement that in behavioural verilog, such that to perform the s box operation you just grab the right value from the lookup table.
+												<br>
+												Next the output from the sbox is xor'ed with a round contstant that is different for each of the 10 rounds.
+												Finally all of the columns are xored with either another column or the output from the xor'ed sbox. Finally, the output goes through matrixify to turn it back into a matrix. 
+												<br> 
+												For our project, we ran key expand 10 times so that each round would have the necessary key. We then outputted each of these key expansions to the proper round. 
+												</p>
+												<h3>Round</h3>
+												<br>
+												<p>
+												Next up is the round module, in round.v. This module executes one round for the AES algorithm. 
+												<img src="images/encryption-round.png" width=1000px class="center"/>
+												Each round in encryption except the final one consists of 4 operations. The first is substitute bytes, the same sbox operation as described above.
+												</p>
 											</p>
 										</section>
-
 								</div>
 							</div>
 						</div>
