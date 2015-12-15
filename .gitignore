@@ -1,3 +1,9 @@
+*.ini
+*.qdb
+*.qtl
+*.qpg
+*.opt
+*.wlf
 *
 !.gitignore
 !*.v
