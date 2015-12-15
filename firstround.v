@@ -1,9 +1,6 @@
 //------------------------------------------------------------------------
 // First Round - Decrypt
 //------------------------------------------------------------------------
-`include "substitutekey.v" 
-`include "diffusion.v" 
-`include "addroundkey.v"
 
 module firstround
 (

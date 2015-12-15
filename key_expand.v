@@ -1,6 +1,6 @@
 module key_expand(
 	input [127:0] aes_key,
-	output [127:0] key1,
+	output [127:0] key1 ,
 	output [127:0] key2,
 	output [127:0] key3,
 	output [127:0] key4,
