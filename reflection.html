@@ -86,7 +86,7 @@
 											<h3>Challenges</h3>
 											<p>
 												Our biggest challenge was implementing mix columns in diffusion. The resources that we had been working with implied that this could be done through matrix multiplication. However, after the code that we wrote for matrix multiplication did not give the right answer, we dug deeper. As it turns out, the matrix multiplication that is done in AES involves a different type of math: Galois finite field arithmetic. We researched this for awhile and consulted with our NINJAs, and eventually found look up tables giving values for multiplication in the field G(2^8). We then implemented the matrix multiplaction using this for the multiplication and XOR for the addition. This obstacle was overcome thru sheer persistence.
-
+												<br><br>
 												Some smaller obstacles we faced were mainly verilog troubles. It took us a while to figure out how to implement SystemVerilog features in our code, and to set up our development enviroment to allow the running of SystemVerilog code. We also encountered many small verilog errors relating to things like port size and reg to wire errors. These smaller obstacles were overcome thru simple debugging.
 											</p>
 											<h3>Triumphs</h3>
