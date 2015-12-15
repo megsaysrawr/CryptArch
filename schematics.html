@@ -64,7 +64,7 @@
 											</p>
 											<img src="images/KeyExpansion.png" width=1000px height=350px alt="Schematic of Key Expansion"/>
 											<p>
-
+												Kkey expand takes in one key, and outputs 10 new keys. Taking the initial key, the first step of the key expand is to shift the bytes of the last column. The top byte goes to the bottom, and the rest shift up. Each byte of the key is mapped by the s-box. The last column is then XORed with a round constant column corresponding to that round, and then the result of that XOR is XORed with each other column of the s-box mapped key to get the key for the next round. This is repeated for each round to get each of the following keys up until the last one, key10.
 											</p>
 											<img src="images/encryption-round.png" width=1000px height=200px alt="Schematic of Round"/>
 											<p>
