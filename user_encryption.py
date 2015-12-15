@@ -2,18 +2,18 @@
 Encryption
 How to Use:
 			1) Open the terminal, right click, paste "cd C:\Users\mmccauley\Documents\GitHub\CryptArch"
-			2) Type "python user_encryption.py". Follow the instructions.
-			3) Copy your hex message and key result.
-				(The secret to copying in the terminal is right click, select all, click anywhere,
-				highlight what you want to copy, right click on the title window, edit, copy.)
-			4) Enter your hex message and key into demo_day_encryptor.t.v on lines 50 and 52, respectively. Save the file.
+			2) Type "python user_encryption.py". Follow the instructions to input your message and key.
+					(*Note: Make sure they are exactly 16 characters each!)
+			3) Copy your hex message and hex key result from the terminal.
+					(*Note: The secret to copying in the terminal is right click, select all, click anywhere,
+					 highlight what you want to copy, right click on the title window, edit, copy.)
+			4) Enter your hex message (plaintext) and hex key (key) into demo_day_encryptor.t.v
+			   on lines 50 and 52, respectively. Save the file.
 			5) Open ModelSim, paste "cd C:/Users/mmccauley/Documents/GitHub/CryptArch" into the Transcript and hit enter.
-				(Note: The slashes go the other way for ModelSim.)
-			6) Run "do demo_day_encryptor.do"
+					(*Note: The slashes go the other way for ModelSim.)
+			6) Run "do demo_day_encryptor.do" in ModelSim.
 			7) Be amazed at your encrypted output!
-Decryption
-How to Use:
-			1) Copy your encrypted hex output.
+			8) Ready to decrypt your message? Open user_decryption.py!
 """
 
 from binascii import hexlify

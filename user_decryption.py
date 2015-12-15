@@ -1,21 +1,29 @@
 """
 Decryption
 How to Use:
-			1) Get the encrypted hex output from ModelSim and paste it into the hex_output below.
-			2) Get the hex key from user_encryption.py or ModelSim and paste it into hex_key below.
-			3) Save (ctrl + S) and build (ctrl + B). Your key should come out in plain text. Your decoded message is not utf-8.
-			4) Be amazed at your decrypted output!
+			1) Copy your encrypted hex output and hex key from ModelSim.
+					(*Note: Make sure your hex key is the same key that you used to encrypt your message.)
+			2) Enter your hex message (ciphertext) and hex key (key) into demo_day_decryptor.t.v
+			   on lines 50 and 52, respectively. Save the file.
+			3) Run "do demo_day_decryptor.do" in ModelSim.
+			4) Copy your decrypted hex message and hex key result from the Transcript
+			   and paste them below in hex_output and hex_key respectively.
+			5) Save (ctrl + S) and build (ctrl + B). Your key and decoded message should come out in plain text!
+			   		(*Note: If your decoded message says "[Decode error- ouput not utf-8]" it means that
+			   		  Python can't match one of the hex values to a character. It's not your fault,
+			   		  so please try a different message!)
+
 """
 
 from binascii import unhexlify
 
 #paste your hex output here
-hex_output = u"049feb26d0cba0441b4a6112bb067a13"
+hex_output = '69206c6f766520636f6d706172636821'
 #paste your hex key here
-hex_key = u"737570657220736563726574206b6579"
+hex_key = '6d65677361797372617772746f796f75'
 
 unhex_output = unhexlify(hex_output)
 unhex_key = unhexlify(hex_key)
 
 print "Text Key: " + unhex_key
-print "Text Output: " + unhex_output
+print 'Text Output: ' + unhex_output

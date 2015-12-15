@@ -46,15 +46,17 @@ module encryptortestbench (
 
 	always@(begintest) begin
 		$display("--------------------------------------------------------------------");
-		// input hex message
-		plaintext=128'h636f6d7061726368636f6d7061726368;
-		//input hex key 
-		key=128'h737570657220736563726574206b6579;
+		// Paste your hex message from the output of user_encryption.py
+		plaintext=128'h69206c6f766520636f6d706172636821;
+		// Paste your hex key from the output of user_encryption.py
+		key=128'h6d65677361797372617772746f796f75;
 		rst=1; #10
 			$display("Your plain hex input = %h", plaintext);
 			$display("Your key hex input = %h", key);
 			$display("Encrypting...");
 			$display("Your encrypted hex output = %h", ciphertext);
+		$display("--------------------------------------------------------------------");
+
 		end
 
 endmodule
