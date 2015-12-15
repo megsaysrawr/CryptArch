@@ -242,6 +242,15 @@
 												<img src="images/encryption-round.png" width=1000px class="center"/>
 												Each round in encryption except the final one consists of 4 operations. The first is substitute bytes, the same sbox operation as described above.
 												</p>
+												<h3>Decryption</h3>
+												Now let's talk about how we implemented decryption.  
+												<br>
+												<img src="images/CipherDecryption.png" class="center" width=1000px>
+												<br>
+												The decryption module takes two inputs: a 128-bit encrypted message and a 128-bit key.
+												It outputs the plaintext, and a "done" flag that is set to high when decryption is completed.
+
+												Within the decryption module, we instantiated instances of all the other modules we created for decryption. <br>
 											</p>
 										</section>
 								</div>
