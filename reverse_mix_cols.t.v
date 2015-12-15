@@ -71,7 +71,7 @@ module reverse_mix_cols_test_bench(
 		$display("Testing case 1...");
 		input_col = 32'he0958b65;
 		#20
-		$display("answer should be 5c220af2");
+		$display("answer should be 926bd4b6");
 		$display("the answer is %h",final_col);
 
 	

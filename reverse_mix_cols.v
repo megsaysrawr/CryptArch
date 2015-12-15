@@ -1072,10 +1072,10 @@ endfunction
 
 //input is input_col [31:0]
 assign final_col = {
-mult_9_lut(input_col[31:24]) ^ mult_13_lut(input_col[23:16]) ^ mult_11_lut(input_col[15:8]) ^ mult_14_lut(input_col[7:0]),
-mult_14_lut(input_col[31:24]) ^ mult_11_lut(input_col[23:16]) ^ mult_14_lut(input_col[15:8]) ^ mult_9_lut(input_col[7:0]),
-mult_11_lut(input_col[31:24]) ^ mult_14_lut(input_col[23:16]) ^ mult_9_lut(input_col[15:8]) ^ mult_13_lut(input_col[7:0]),
-mult_14_lut(input_col[31:24]) ^ mult_9_lut(input_col[23:16]) ^ mult_13_lut(input_col[15:8]) ^ mult_11_lut(input_col[7:0])
+mult_14_lut(input_col[31:24]) ^ mult_11_lut(input_col[23:16]) ^ mult_13_lut(input_col[15:8]) ^ mult_9_lut(input_col[7:0]),
+mult_9_lut(input_col[31:24]) ^ mult_14_lut(input_col[23:16]) ^ mult_11_lut(input_col[15:8]) ^ mult_13_lut(input_col[7:0]),
+mult_13_lut(input_col[31:24]) ^ mult_9_lut(input_col[23:16]) ^ mult_14_lut(input_col[15:8]) ^ mult_11_lut(input_col[7:0]),
+mult_11_lut(input_col[31:24]) ^ mult_13_lut(input_col[23:16]) ^ mult_9_lut(input_col[15:8]) ^ mult_14_lut(input_col[7:0])
 };
 
 endmodule
